@@ -32,21 +32,21 @@ body {
 
 .hero h2 {
     font-family: "Jomhuria", serif; 
-    font-size: 4em;
+    font-size: 3em;
     letter-spacing: 2px;
     margin: 0;
 }
 
 .hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
     font-family: "Kameron", serif; 
-    font-size: 1.3em;
+    font-size: 1em;
     padding: 0 1em 0 1em;
     text-align: center;
     margin: .5em 0;
 }
 
 .bio-image {
-    width: 10rem;
+    width: 5rem;
     border-radius: 1rem;
 }
 
@@ -109,10 +109,46 @@ iframe {
     transform: scale(1.1);
 }
 
-/* .nav__link {
-    color: inherit;
-    font-weight: var(--fw-bold);
-    font-size: var(--ff-secondary);
-    text-decoration: none;
-    line-height: 2;
-} */
+/* Small tablets (portrait) */
+@media (min-width: 600px) {
+    .hero {
+        width: 100%;
+        margin: 0 auto;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: start;
+    }
+
+    .bio-image {
+        width: 10em;
+    } 
+
+    .hero h2 {
+        font-size: 4em;
+    }
+
+    .hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
+        font-size: 1.3em;
+        padding-top: 3.5em;
+    }
+
+    .hero .emoji {
+        padding-top: 3.5em;
+    }
+    
+  }
+  
+  /* Tablets (landscape) and small laptops */
+  @media (min-width: 768px) {
+    /* Medium screens */
+  }
+  
+  /* Desktops */
+  @media (min-width: 1024px) {
+    /* Large screens */
+  }
+  
+  /* Large desktops / widescreens */
+  @media (min-width: 1280px) {
+    /* Extra large screens */
+  }
