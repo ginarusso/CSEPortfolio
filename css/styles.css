@@ -4,6 +4,30 @@
     box-sizing: border-box;
 }
 
+/* Custom Properties */
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    --ff-title: 'Sigmar', cursive;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #fff;
+    --clr-dark: #000;
+    /* --clr-accent: #FA81B9; */
+    --clr-accent: #E6F7F9;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
 body {
     background-color: #E6F7F9;
     margin: 0;
@@ -86,10 +110,55 @@ iframe {
 .footer {
     flex-direction: row;
     justify-content: center;
+    background-color: black;
 }
 
-.footer img {
-    margin: 0;
+.footer {
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 1em 0;
+    font-size: var(--fs-h3);
+
+}
+
+.footer a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer__link {
+    font-weight: var(--fw-bold);
+}
+
+.footer__link:hover,
+.social-list__link:hover {
+    opacity: .7;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.social-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: .5em 0 0;
+    padding: 0;
+}
+
+.social-list__item {
+    margin: 0 .5em;
+    transition: transform 200ms ease-in-out;
+}
+
+.social-list__item:hover {
+    transform: scale(2);
+}
+
+.social-list__link {
+    padding: .5em;
 }
 
 .arrows {
@@ -109,6 +178,55 @@ iframe {
     transform: scale(1.1);
 }
 
+.led-divider {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+  background: #0D454B;
+}
+
+.led {
+  width: 10px;
+  height: 30px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Default shape: rectangle */
+.led.rectangle {
+  border-radius: 4px;
+}
+
+/* Round shape */
+.led.round {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/* Triangle shape (using CSS clip-path) */
+.led.triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 16px solid currentColor; /* Color will be set by JS */
+  background: transparent !important; /* Override background-color */
+}
+  
+  /* LED colors */
+  .red { background-color: red; }
+  .orange { background-color: orange; }
+  .yellow { background-color: yellow; }
+  .green { background-color: green; }
+  .blue { background-color: blue; }
+  .indigo { background-color: indigo; }
+  .violet { background-color: violet; }
+  .pink { background-color: pink; }
+  .cyan { background-color: cyan; }
+  .lime { background-color: lime; }
+
 /* Small tablets (portrait) */
 /* @media (min-width: 600px) {
     .hero {
@@ -118,6 +236,9 @@ iframe {
         justify-content: space-around;
         align-items: start;
     }
+
+
+    
 
     .bio-image {
         width: 10em;
