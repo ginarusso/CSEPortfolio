@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E6F7F9;
+    margin: 0;
+}
+
+/*********** font styles **************/
+@font-face {
+    font-family: "Jomhuria";
+    src: url(/fonts/Jomhuria/Jomhuria-Regular.ttf); 
+}
+
+@font-face {
+    font-family: "Kameron";
+    src: url(/fonts/Kameron/Kameron-Medium.ttf); 
+}
+
+.hero {
+    /* background-image: url(/images/background.png);
+    background-size: cover;
+    background-attachment: fixed; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.hero h2 {
+    font-family: "Jomhuria", serif; 
+    font-size: 4em;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
+    font-family: "Kameron", serif; 
+    font-size: 1.3em;
+    padding: 0 1em 0 1em;
+    text-align: center;
+    margin: .5em 0;
+}
+
+.bio-image {
+    width: 10rem;
+    border-radius: 1rem;
+}
+
+.placeholder {
+    width: 50%;
+}
+
+/* .emoji {
+
+} */
+.image {
+    margin-top: 1em;
+}
+
+.treasure, .python, .turtle, .alien, .scratch, .about-me {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+.alien, .scratch, .about-me {
+    background-color: #E6F7F9;
+    padding: 1.5em 0;
+}
+
+.python, .turtle {
+    padding: 1.5em 0;
+}
+
+iframe { 
+    margin: 1em 0;
+
+  }
