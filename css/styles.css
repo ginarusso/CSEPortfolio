@@ -61,7 +61,7 @@ body {
     margin-top: 1em;
 }
 
-.treasure, .python, .turtle, .alien, .scratch, .about-me {
+.treasure, .python, .turtle, .alien, .scratch, .about-me, .footer {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -82,3 +82,12 @@ iframe {
     margin: 1em 0;
 
   }
+
+.footer {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer img {
+    margin: 0;
+}
