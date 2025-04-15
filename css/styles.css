@@ -110,7 +110,7 @@ iframe {
 }
 
 /* Small tablets (portrait) */
-@media (min-width: 600px) {
+/* @media (min-width: 600px) {
     .hero {
         width: 100%;
         margin: 0 auto;
@@ -136,7 +136,7 @@ iframe {
         padding-top: 3.5em;
     }
     
-  }
+  } */
   
   /* Tablets (landscape) and small laptops */
   @media (min-width: 768px) {
