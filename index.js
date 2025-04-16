@@ -113,7 +113,8 @@ function scrollFunction() {
 document.addEventListener('DOMContentLoaded', () => {
     const ledDividers = document.querySelectorAll('.led-divider');
     const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'pink', 'cyan', 'lime']; // Array of color class names
-  
+    const alienHeadColor = 'lime';
+    
     function createLed(parent, shape, colorClass) {
       const led = document.createElement('div');
       led.classList.add('led');
@@ -122,8 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         led.classList.add('rectangle');
       }
-      if (colorClass) {
-        led.classList.add(colorClass); // Add the specific color class
+      if (shape === 'alien-head') {
+        led.style.color = alienHeadColor; // Force lime green for alien heads
+      } else if (colorClass) {
+        led.classList.add(colorClass); // Add the specific color class for others
         led.style.color = colorClass; // Set the 'color' property for currentColor
       }
       parent.appendChild(led);

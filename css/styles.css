@@ -7,7 +7,7 @@
 /* Custom Properties */
 
 :root {
-    --ff-primary: 'Source Sans Pro', sans-serif;
+    /* --ff-primary: 'Source Sans Pro', sans-serif;
     --ff-secondary: 'Source Code Pro', monospace;
     --ff-title: 'Sigmar', cursive;
     
@@ -15,17 +15,16 @@
     --fw-bold: 900;
     
     --clr-light: #fff;
-    --clr-dark: #000;
-    /* --clr-accent: #FA81B9; */
+    --clr-dark: #000; */
     --clr-accent: #E6F7F9;
     
-    --fs-h1: 3rem;
+    /* --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+          0.125em 0.125em 0.25em rgba(0,0,0,.15); */
 }
 
 body {
@@ -195,7 +194,7 @@ iframe {
 
 /* Default shape: rectangle */
 .led.rectangle {
-  border-radius: 4px;
+  border-radius: 4px
 }
 
 /* Round shape */
@@ -214,6 +213,84 @@ iframe {
   border-bottom: 16px solid currentColor; /* Color will be set by JS */
   background: transparent !important; /* Override background-color */
 }
+
+/* Star shape (using CSS clip-path) */
+.led.star {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    background-color: currentColor; /* Use currentColor for color control */
+    -webkit-clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    clip-path: polygon(
+      50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%
+    );
+    background: currentColor; /* Ensure background color is set */
+  }
+
+  /* Diamond shape (using CSS clip-path) */
+.led.diamond {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    background-color: currentColor; /* Use currentColor for color control */
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: currentColor; /* Ensure background color is set */
+  }
+
+/* Reshaped Alien Head with Angled Oval Eyes */
+.led.alien-head {
+    position: relative; /* Needed for positioning eyes */
+    width: 22px;
+    height: 32px;
+    background-color: currentColor;
+    border-radius: 70% 70% 40% 40%;
+    -webkit-clip-path: polygon(50% 0%, 85% 10%, 98% 35%, 95% 65%, 80% 85%, 50% 98%, 20% 85%, 5% 65%, 2% 35%, 15% 10%);
+    clip-path: polygon(50% 0%, 85% 10%, 98% 35%, 95% 65%, 80% 85%, 50% 98%, 20% 85%, 5% 65%, 2% 35%, 15% 10%);
+    background: currentColor;
+  }
+  
+  /* Angled Oval Eyes */
+  .led.alien-head::before,
+  .led.alien-head::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    top: 25%;
+  }
+  
+  .led.alien-head::before {
+    left: 15%;
+    transform: rotate(-15deg); /* Angle the left eye */
+  }
+  
+  .led.alien-head::after {
+    right: 15%;
+    transform: rotate(15deg);  /* Angle the right eye */
+  }
+  
+  
   
   /* LED colors */
   .red { background-color: red; }
