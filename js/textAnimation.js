@@ -26,7 +26,8 @@ function drawName(name, letterColors) {
 
     name.split('').forEach((letter, index) => {
         ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`; // Apply the color
-        ctx.font = "30px 'Chewy', cursive";
+        // ctx.font = "30px 'Chewy', cursive";
+        ctx.font="30px 'Mystery Quest'";
         ctx.fillText(letter, x, y);
         x += 40; // Space out the letters
     });
@@ -76,3 +77,5 @@ var letterColors = [
     navy, lightGreen, lightBlue, lightPink, brown, beige, cream,
     slateGray, lightGray, darkGray
 ];
+
+

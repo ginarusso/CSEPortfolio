@@ -60,8 +60,14 @@ function drawName(name, letterColors) {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
     const fontSize = 20; // Match the font size used in shakeText for consistency
-    const font = `${fontSize}px Chewy`;
+    const font = `${fontSize}px Mystery Quest`;
     ctx.font = font;
+
+    // Set the text shadow properties
+    ctx.shadowOffsetX = 2;   // Horizontal offset
+    ctx.shadowOffsetY = 2;   // Vertical offset
+    ctx.shadowBlur = 3;    // Blur amount
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; // Shadow color (semi-transparent black)
 
     // Measure the total width of the text
     const textWidth = name.split('').reduce((acc, letter) => acc + ctx.measureText(letter).width, 0);
@@ -138,6 +144,12 @@ function shakeText() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+ // Set the text shadow properties (same as in drawName for consistency)
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 3;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+
     initialPositions.forEach((pos, index) => {
         const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
         const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
@@ -145,7 +157,7 @@ function shakeText() {
         // Use the shuffled colors in sequence
         ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
 
-        ctx.font = "30px 'Chewy', cursive";
+        ctx.font = "30px 'Mystery Quest', cursive";
         ctx.fillText(myName[index], pos.x + offsetX, pos.y + offsetY);
     });
 }
