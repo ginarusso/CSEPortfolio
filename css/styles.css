@@ -32,6 +32,11 @@ body {
     margin: 0;
 }
 
+.parent {
+  width: 80%;
+  margin: 0 auto;
+}
+
 /*********** font styles **************/
 @font-face {
     font-family: "Jomhuria";
@@ -44,13 +49,15 @@ body {
 }
 
 .hero {
-    /* background-image: url(/images/background.png);
-    background-size: cover;
-    background-attachment: fixed; */
+    /* position: relative; /* For absolute positioning of canvas if needed */
+    /* width: 100%; Make hero width responsive */
+    /* height: auto; Or a specific responsive height */
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    width: 100%;
+    /* padding: 1em; */
 }
 
 .hero h2 {
@@ -71,6 +78,23 @@ body {
 .bio-image {
     width: 5rem;
     border-radius: 1rem;
+}
+
+.canvas-container {
+  position: relative; /* Important for positioning the canvas within */
+  width: 100%; /* Make the container take full width of its parent */
+  height: 75px; /* Adjust height as needed or based on content */
+}
+
+.canvas-container #myCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  /* display: block; Prevents extra bottom spacing */
+  border: 4px dotted green;
 }
 
 .placeholder {
@@ -289,8 +313,6 @@ iframe {
     right: 15%;
     transform: rotate(15deg);  /* Angle the right eye */
   }
-  
-  
   
   /* LED colors */
   .red { background-color: red; }
