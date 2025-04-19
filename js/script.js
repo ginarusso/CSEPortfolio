@@ -178,184 +178,161 @@
 // // Initial call to set up the canvas size and draw
 // updateCanvasDimensions();
 
-        // Initialize the canvas and context
-        const canvas = document.getElementById("myCanvas");
-        const ctx = canvas.getContext("2d");
+// Initialize the canvas and context
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-        var myName = "Let's Create!"; // Your name or text to animate
-        var letterColors = [
-            [0, 100, 63],     // red
-            [40, 100, 60],    // orange
-            [55, 100, 50],    // yellow
-            [80, 100, 50],    // lime
-            [120, 100, 40],   // green
-            [180, 100, 40],   // teal
-            [180, 100, 60],   // cyan
-            [220, 100, 55],   // blue
-            [270, 100, 30],   // indigo
-            [300, 100, 50],   // violet
-            [330, 100, 50],   // magenta
-            [350, 100, 70],   // pink
-            [50, 100, 70],    // gold
-            [0, 0, 80],       // silver
-            [30, 60, 50],    // bronze
-            [0, 80, 50],     // deepRed
-            [100, 70, 40],   // forestGreen
-            [200, 90, 70],   // skyBlue
-            [220, 70, 40],   // darkBlue
-            [270, 60, 80],   // lavender
-            [330, 100, 70],   // hotPink
-            [16, 100, 70],    // coral
-            [6, 100, 80],     // salmon
-            [170, 100, 50],   // turquoise
-            [60, 80, 50],    // olive
-            [0, 70, 40],     // maroon
-            [240, 100, 30],   // navy
-            [90, 100, 70],    // lightGreen
-            [210, 100, 70],   // lightBlue
-            [350, 100, 90],   // lightPink
-            [30, 80, 30],    // brown
-            [40, 70, 90],    // beige
-            [45, 60, 95],    // cream
-            [0, 0, 50],       // slateGray
-            [0, 0, 70],       // lightGray
-            [0, 0, 30]        // darkGray
-        ];
+var myName = "Let's Create!"; // Your name or text to animate
+var letterColors = [
+    [0, 100, 63],     // red
+    [40, 100, 60],    // orange
+    [55, 100, 50],    // yellow
+    [80, 100, 50],    // lime
+    [120, 100, 40],   // green
+    [180, 100, 40],   // teal
+    [180, 100, 60],   // cyan
+    [220, 100, 55],   // blue
+    [270, 100, 30],   // indigo
+    [300, 100, 50],   // violet
+    [330, 100, 50],   // magenta
+    [350, 100, 70],   // pink
+    [50, 100, 70],    // gold
+    [0, 0, 80],       // silver
+    [30, 60, 50],    // bronze
+    [0, 80, 50],     // deepRed
+    [100, 70, 40],   // forestGreen
+    [200, 90, 70],   // skyBlue
+    [220, 70, 40],   // darkBlue
+    [270, 60, 80],   // lavender
+    [330, 100, 70],   // hotPink
+    [16, 100, 70],    // coral
+    [6, 100, 80],     // salmon
+    [170, 100, 50],   // turquoise
+    [60, 80, 50],    // olive
+    [0, 70, 40],     // maroon
+    [240, 100, 30],   // navy
+    [90, 100, 70],    // lightGreen
+    [210, 100, 70],   // lightBlue
+    [350, 100, 90],   // lightPink
+    [30, 80, 30],    // brown
+    [40, 70, 90],    // beige
+    [45, 60, 95],    // cream
+    [0, 0, 50],       // slateGray
+    [0, 0, 70],       // lightGray
+    [0, 0, 30]        // darkGray
+];
 
-        // Track the initial positions of the letters
-        var initialPositions = [];
+// Track the initial positions of the letters
+var initialPositions = [];
 
-        // Get the audio element
-        const hoverSound = document.getElementById("hoverSound");
+// Get the audio element
+const hoverSound = document.getElementById("hoverSound");
 
-        // Variables to control the shaking effect
-        let shakeInterval;
-        let shaking = false;
-        let interactionActive = false; // Flag to indicate if an interaction is active
+// Hover effect - make the text shake and play sound when hovering
+canvas.addEventListener('mouseenter', startHover);
+canvas.addEventListener('mouseleave', stopHover);
 
-        // Function to draw the name on canvas (now handles centering)
-        function drawName(name, letterColors) {
-            const canvasWidth = canvas.width;
-            const canvasHeight = canvas.height;
-            const fontSize = 20;
-            const font = `${fontSize}px Mystery Quest`;
-            ctx.font = font;
-            ctx.shadowOffsetX = 2;
-            ctx.shadowOffsetY = 2;
-            ctx.shadowBlur = 3;
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-            const textWidth = name.split('').reduce((acc, letter) => acc + ctx.measureText(letter).width, 0);
-            const letterSpacing = 10;
-            const totalTextWidthWithSpacing = name.length > 0 ? textWidth + (name.length - 1) * letterSpacing : 0;
-            const startX = (canvasWidth - totalTextWidthWithSpacing) / 2;
-            const startY = canvasHeight / 2;
-            ctx.textBaseline = 'middle';
-            let currentX = startX;
-            initialPositions.length = 0;
-            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-            name.split('').forEach((letter, index) => {
-                ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
-                ctx.fillText(letter, currentX, startY);
-                initialPositions.push({ x: currentX, y: startY, offsetX: 0, offsetY: 0 });
-                currentX += ctx.measureText(letter).width + letterSpacing;
-            });
-        }
+// Variables to control the shaking effect
+let shakeInterval;
+let shaking = false;
 
-        // Function to start shaking
-        function startShaking() {
-            if (!shaking) {
-                shaking = true;
-                shuffleArray(letterColors);
-                shakeInterval = setInterval(shakeText, 50);
-            }
-        }
+// Function to draw the name on canvas (now handles centering)
+function drawName(name, letterColors) {
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const fontSize = 20;
+    const font = `${fontSize}px Mystery Quest`;
+    ctx.font = font;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 3;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    const textWidth = name.split('').reduce((acc, letter) => acc + ctx.measureText(letter).width, 0);
+    const letterSpacing = 10;
+    const totalTextWidthWithSpacing = name.length > 0 ? textWidth + (name.length - 1) * letterSpacing : 0;
+    const startX = (canvasWidth - totalTextWidthWithSpacing) / 2;
+    const startY = canvasHeight / 2;
+    ctx.textBaseline = 'middle';
+    let currentX = startX;
+    initialPositions.length = 0;
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    name.split('').forEach((letter, index) => {
+        ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
+        ctx.fillText(letter, currentX, startY);
+        initialPositions.push({ x: currentX, y: startY, offsetX: 0, offsetY: 0 });
+        currentX += ctx.measureText(letter).width + letterSpacing;
+    });
+}
 
-        // Function to stop shaking
-        function stopShaking() {
-            if (shaking) {
-                shaking = false;
-                clearInterval(shakeInterval);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawName(myName, letterColors);
-            }
-        }
+// Function to start shaking
+function startShaking() {
+    if (!shaking) {
+        shaking = true;
+        shuffleArray(letterColors);
+        shakeInterval = setInterval(shakeText, 50);
+    }
+}
 
-        // Function to handle the start of interaction (hover or touch)
-        function startInteraction() {
-            if (!interactionActive) {
-                interactionActive = true;
-                startShaking();
-                hoverSound.play();
-            }
-        }
-
-        // Function to handle the end of interaction
-        function endInteraction() {
-            if (interactionActive) {
-                interactionActive = false;
-                stopShaking();
-                hoverSound.pause();
-                hoverSound.currentTime = 0;
-            }
-        }
-
-        // Event listeners
-        canvas.addEventListener('mouseenter', startInteraction);
-        canvas.addEventListener('mouseleave', endInteraction);
-        canvas.addEventListener('touchstart', startInteraction);
-        canvas.addEventListener('touchend', () => {
-            // On touchend, we don't immediately stop.
-            // The 'ended' event of the audio will handle stopping.
-        });
-
-        // Listen for the 'ended' event of the audio
-        hoverSound.addEventListener('ended', () => {
-            if (interactionActive && ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0)) {
-                endInteraction();
-            }
-        });
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
-
-        // Function to shake text
-        function shakeText() {
-            const bounceIntensity = 50;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.shadowOffsetX = 2;
-            ctx.shadowOffsetY = 2;
-            ctx.shadowBlur = 3;
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-            initialPositions.forEach((pos, index) => {
-                const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
-                const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
-                ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
-                ctx.font = `30px 'Mystery Quest'`; // Consistent font
-                ctx.fillText(myName[index], pos.x + offsetX, pos.y + offsetY);
-            });
-        }
-
-        // Call drawName initially to center the text
+// Function to stop shaking
+function stopShaking() {
+    if (shaking) {
+        shaking = false;
+        clearInterval(shakeInterval);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawName(myName, letterColors);
+    }
+}
 
-        // Make the canvas dimensions responsive
-        function updateCanvasDimensions() {
-            const parent = canvas.parentNode; // Assuming canvas-container is the parent
-            canvas.width = parent.offsetWidth;
-            canvas.height = 75; // Or your desired fixed height
-            const dpr = window.devicePixelRatio || 1;
-            canvas.width *= dpr;
-            canvas.height *= dpr;
-            ctx.scale(dpr, dpr);
-            drawName(myName, letterColors); // Redraw the text centered on resize
-        }
+// Function to start the hover effect (shake and play sound)
+function startHover() {
+    startShaking(); // Start the shaking animation
+    hoverSound.play(); // Start playing the audio
+}
 
-        window.addEventListener('resize', updateCanvasDimensions);
+// Function to stop the hover effect (stop shake and sound)
+function stopHover() {
+    stopShaking(); // Stop the shaking animation
+    hoverSound.pause(); // Pause the audio
+    hoverSound.currentTime = 0; // Reset audio to the beginning (optional)
+}
 
-        // Initial call to set up the canvas size and draw
-        updateCanvasDimensions();
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Function to shake text
+function shakeText() {
+    const bounceIntensity = 50;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 3;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    initialPositions.forEach((pos, index) => {
+        const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
+        const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
+        ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
+        ctx.font = `30px 'Mystery Quest'`; // Consistent font
+        ctx.fillText(myName[index], pos.x + offsetX, pos.y + offsetY);
+    });
+}
+
+// Call drawName initially to center the text
+drawName(myName, letterColors);
+
+// Make the canvas dimensions responsive
+function updateCanvasDimensions() {
+    const parent = canvas.parentNode; // Assuming canvas-container is the parent
+    canvas.width = parent.offsetWidth;
+    canvas.height = 75; // Or your desired fixed height
+    drawName(myName, letterColors); // Redraw the text centered on resize
+}
+
+window.addEventListener('resize', updateCanvasDimensions);
+
+// Initial call to set up the canvas size and draw
+updateCanvasDimensions();
