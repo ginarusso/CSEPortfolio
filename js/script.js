@@ -231,7 +231,7 @@ const hoverSound = document.getElementById("hoverSound");
 // Variables to control the shaking effect
 let shakeInterval;
 let shaking = false;
-let soundPlayed = false; // Flag to track if the sound has played
+let interactionActive = false; // Flag to indicate if an interaction is active
 
 // Function to draw the name on canvas (now handles centering)
 function drawName(name, letterColors) {
@@ -280,40 +280,39 @@ function stopShaking() {
     }
 }
 
-// Function to handle the initial touch/hover
-function handleInteractionStart() {
-    startShaking();
-    if (!soundPlayed) {
+// Function to handle the start of interaction (hover or touch)
+function startInteraction() {
+    if (!interactionActive) {
+        interactionActive = true;
+        startShaking();
         hoverSound.play();
-        soundPlayed = true;
-    }
-    // For mobile, we want to stop after a short duration
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
-        setTimeout(stopInteraction, 500); // Adjust the duration as needed (milliseconds)
+        // For mobile, we'll rely on the audio end event to stop
     }
 }
 
-// Function to stop the effect
-function stopInteraction() {
-    stopShaking();
-    hoverSound.pause();
-    hoverSound.currentTime = 0;
-    soundPlayed = false; // Reset the flag for the next interaction
+// Function to handle the end of interaction (mouseleave)
+function endInteraction() {
+    if (interactionActive) {
+        interactionActive = false;
+        stopShaking();
+        hoverSound.pause();
+        hoverSound.currentTime = 0;
+    }
 }
 
 // Event listeners
-canvas.addEventListener('mouseenter', startHover); // Use the existing startHover for desktop
-canvas.addEventListener('mouseleave', stopHover);   // Use the existing stopHover for desktop
-canvas.addEventListener('touchstart', handleInteractionStart); // Use handleInteractionStart for mobile
+canvas.addEventListener('mouseenter', startInteraction);
+canvas.addEventListener('mouseleave', endInteraction);
+canvas.addEventListener('touchstart', startInteraction);
 
 // Existing startHover and stopHover functions (modified to use handleInteractionStart/stopInteraction)
-function startHover() {
-    handleInteractionStart();
-}
+// function startHover() {
+//     handleInteractionStart();
+// }
 
-function stopHover() {
-    stopInteraction();
-}
+// function stopHover() {
+//     stopInteraction();
+// }
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
