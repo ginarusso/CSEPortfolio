@@ -228,13 +228,10 @@ var initialPositions = [];
 // Get the audio element
 const hoverSound = document.getElementById("hoverSound");
 
-// Hover effect - make the text shake and play sound when hovering
-canvas.addEventListener('mouseenter', startHover);
-canvas.addEventListener('mouseleave', stopHover);
-
 // Variables to control the shaking effect
 let shakeInterval;
 let shaking = false;
+let soundPlayed = false; // Flag to track if the sound has played
 
 // Function to draw the name on canvas (now handles centering)
 function drawName(name, letterColors) {
@@ -283,17 +280,39 @@ function stopShaking() {
     }
 }
 
-// Function to start the hover effect (shake and play sound)
-function startHover() {
-    startShaking(); // Start the shaking animation
-    hoverSound.play(); // Start playing the audio
+// Function to handle the initial touch/hover
+function handleInteractionStart() {
+    startShaking();
+    if (!soundPlayed) {
+        hoverSound.play();
+        soundPlayed = true;
+    }
+    // For mobile, we want to stop after a short duration
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+        setTimeout(stopInteraction, 500); // Adjust the duration as needed (milliseconds)
+    }
 }
 
-// Function to stop the hover effect (stop shake and sound)
+// Function to stop the effect
+function stopInteraction() {
+    stopShaking();
+    hoverSound.pause();
+    hoverSound.currentTime = 0;
+    soundPlayed = false; // Reset the flag for the next interaction
+}
+
+// Event listeners
+canvas.addEventListener('mouseenter', startHover); // Use the existing startHover for desktop
+canvas.addEventListener('mouseleave', stopHover);   // Use the existing stopHover for desktop
+canvas.addEventListener('touchstart', handleInteractionStart); // Use handleInteractionStart for mobile
+
+// Existing startHover and stopHover functions (modified to use handleInteractionStart/stopInteraction)
+function startHover() {
+    handleInteractionStart();
+}
+
 function stopHover() {
-    stopShaking(); // Stop the shaking animation
-    hoverSound.pause(); // Pause the audio
-    hoverSound.currentTime = 0; // Reset audio to the beginning (optional)
+    stopInteraction();
 }
 
 function shuffleArray(array) {
