@@ -302,8 +302,12 @@ function endInteraction() {
 
 // Event listeners
 canvas.addEventListener('mouseenter', startInteraction);
-canvas.addEventListener('mouseleave', endInteraction);
+canvas.addEventListener('mouseleave', stopInteraction);
 canvas.addEventListener('touchstart', startInteraction);
+canvas.addEventListener('touchend', () => {
+    // On touchend, we don't immediately stop.
+    // The 'ended' event of the audio will handle stopping.
+});
 
 // Existing startHover and stopHover functions (modified to use handleInteractionStart/stopInteraction)
 // function startHover() {
