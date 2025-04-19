@@ -1,0 +1,31 @@
+#starContainer {
+    background-image: url(/images/laptoptree.png);
+    border: 2px solid blue;
+    background-size:contain;
+    background-repeat: no-repeat;
+    /* height: 300px;
+    width: 300px; */
+} 
+
+.flower {
+    position: absolute;
+    /* Center will be created by JS */
+}
+
+.petal {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: inherit; /* Inherit color from the flower */
+    border-radius: 50%;
+}
+
+.center {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: yellow; /* Or any center color you like */
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+}

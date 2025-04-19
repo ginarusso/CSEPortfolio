@@ -7,20 +7,23 @@
 /* Custom Properties */
 
 :root {
-    /* --ff-primary: 'Source Sans Pro', sans-serif;
-    --ff-secondary: 'Source Code Pro', monospace;
+    --ff-heading: 'Jomhuria', serif; 
+    --ff-primary: 'Kameron', sans-serif;
+
+    --fs-h2: 3rem;
+    --fs-h3: 2rem;
+    /* --ff-secondary: 'Source Code Pro', monospace;
     --ff-title: 'Sigmar', cursive;
     
     --fw-reg: 300;
     --fw-bold: 900;
     
     --clr-light: #fff;
-    --clr-dark: #000; */
+    --clr-dark: #000;  */
     --clr-accent: #E6F7F9;
     
     /* --fs-h1: 3rem;
-    --fs-h2: 2.25rem;
-    --fs-h3: 1.25rem;
+ 
     --fs-body: 1rem;
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
@@ -32,6 +35,13 @@ body {
     margin: 0;
 }
 
+/* h3 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h3);
+  letter-spacing: 2px;
+  margin: 0;
+} */
+
 .parent {
   width: 80%;
   margin: 0 auto;
@@ -39,12 +49,12 @@ body {
 
 /*********** font styles **************/
 @font-face {
-    font-family: "Jomhuria";
+    font-family: 'Jomhuria';
     src: url(/fonts/Jomhuria/Jomhuria-Regular.ttf); 
 }
 
 @font-face {
-    font-family: "Kameron";
+    font-family: 'Kameron';
     src: url(/fonts/Kameron/Kameron-Medium.ttf); 
 }
 
@@ -61,14 +71,20 @@ body {
 }
 
 .hero h2 {
-    font-family: "Jomhuria", serif; 
-    font-size: 3em;
-    letter-spacing: 2px;
-    margin: 0;
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero h3, .treasure h3, .alien h3, .python h3, .scratch h3, .turtle h3, .about-me h3 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h3);
+  margin: 0;
 }
 
 .hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
-    font-family: "Kameron", serif; 
+    font-family: var(--ff-primary); 
     font-size: 1em;
     padding: 0 1em 0 1em;
     text-align: center;

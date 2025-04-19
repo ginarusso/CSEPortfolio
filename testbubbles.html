@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bubble.css">
+    <!-- <link rel="stylesheet" href="css/bubble.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/alphabet.js"></script>
+<!-- <script type="text/javascript" src="js/alphabet.js"></script> -->
+<link rel="stylesheet" href="css/starsDiv.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,14 +19,16 @@
         <img class="bio-image" src="images/gina-russo.jpg" alt="image of Gina Russo smiling" />
         <p>Let's solve real-world problems, by creatively blending technology and physical computing in a fun, engaging way!</p>
         <img class="emoji" src="images/robot.png" alt="robot emoji" />
-        <div class="canvas-container" style="width: 50%; height: 100px;">
+        <!-- <div class="canvas-container" style="width: 50%; height: 100px;">
             <canvas id="myCanvas"></canvas>
             <audio id="hoverSound" src="sounds/ice-falling-into-glass.mp3" preload="auto" loop></audio>
+        </div> -->
+        <div id="starContainer" style="position: relative; width: 300px; height: 300px; overflow: hidden;">
         </div>
         <img class="emoji" src="images/hover-and-watch.png" alt="bitmoji pointing to text" />
     </div>
     <!-- <script type="text/javascript" src="js/bubbles.js"></script>
     <script type="text/javascript" src="js/main.js"></script> -->
-    <script type="text/javascript" src="js/stars.js"></script>
+    <script type="text/javascript" src="js/starsDiv.js"></script>
 </body>
 </html>
