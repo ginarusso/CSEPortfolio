@@ -249,7 +249,7 @@ var currentName = jumbledWords.join(" ");
 function drawText(text, colors) {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
-    const fontSize = 20;
+    const fontSize = 30;
     const font = `${fontSize}px Mystery Quest`;
     ctx.font = font;
     ctx.shadowOffsetX = 2;
@@ -259,20 +259,40 @@ function drawText(text, colors) {
     ctx.textBaseline = 'middle';
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-    let currentX = 0;
-    const letters = text.split("");
-    const totalTextWidth = letters.reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (letters.length - 1) * 10;
-    const startX = (canvasWidth - totalTextWidth) / 2;
-    currentX = startX;
+    const wordsToDraw = text.split(" ");
+    const firstWord = wordsToDraw[0];
+    const secondWord = wordsToDraw[1];
+    const lineSpacing = 20; // Adjust as needed
+    const yOffsetFirstLine = canvasHeight / 2 - fontSize - lineSpacing / 2;
+    const yOffsetSecondLine = canvasHeight / 2 + lineSpacing / 2;
 
-    letters.forEach((letter, index) => {
-        // Pick a random color from the colors array for each letter
+    // Draw the first word
+    let currentXFirst = 0;
+    const firstWordWidth = firstWord.split("").reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (firstWord.length - 1) * 10;
+    const startXFirst = (canvasWidth - firstWordWidth) / 2;
+    currentXFirst = startXFirst;
+
+    firstWord.split("").forEach((letter, index) => {
         const randomIndex = Math.floor(Math.random() * colors.length);
         ctx.fillStyle = `rgb(${colors[randomIndex].join(',')})`;
-        ctx.fillText(letter, currentX, canvasHeight / 2);
-        currentX += ctx.measureText(letter).width + 10;
+        ctx.fillText(letter, currentXFirst, yOffsetFirstLine);
+        currentXFirst += ctx.measureText(letter).width + 10;
+    });
+
+    // Draw the second word
+    let currentXSecond = 0;
+    const secondWordWidth = secondWord.split("").reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (secondWord.length - 1) * 10;
+    const startXSecond = (canvasWidth - secondWordWidth) / 2;
+    currentXSecond = startXSecond;
+
+    secondWord.split("").forEach((letter, index) => {
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        ctx.fillStyle = `rgb(${colors[randomIndex].join(',')})`;
+        ctx.fillText(letter, currentXSecond, yOffsetSecondLine);
+        currentXSecond += ctx.measureText(letter).width + 10;
     });
 }
+
 
 let shakeInterval;
 let shaking = false;
@@ -310,28 +330,49 @@ function stopHover() {
 }
 
 function shakeText() {
-    const bounceIntensity = 30; // Increased bounce intensity
+    const bounceIntensity = 30;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.shadowOffsetX = 2;
     ctx.shadowOffsetY = 2;
     ctx.shadowBlur = 3;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
 
-    const letters = currentName.split("");
+    const wordsToShake = currentName.split(" ");
+    const firstWord = wordsToShake[0];
+    const secondWord = wordsToShake[1];
+    const lineSpacing = 20;
+    const yOffsetFirstLine = canvas.height / 2 - 20 - lineSpacing / 2; // Adjust vertical positioning
+    const yOffsetSecondLine = canvas.height / 2 + lineSpacing / 2;
     const randomizedColors = shuffleArray([...letterColors]);
 
-    let currentX = 0;
-    const totalTextWidth = letters.reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (letters.length - 1) * 10;
-    const startX = (canvas.width - totalTextWidth) / 2;
-    currentX = startX;
+    // Shake and draw the first jumbled word
+    let currentXFirst = 0;
+    const firstWordWidth = firstWord.split("").reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (firstWord.length - 1) * 10;
+    const startXFirst = (canvas.width - firstWordWidth) / 2;
+    currentXFirst = startXFirst;
 
-    letters.forEach((letter, index) => {
+    firstWord.split("").forEach((letter, index) => {
         const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
         const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
         ctx.fillStyle = `rgb(${randomizedColors[index % randomizedColors.length].join(',')})`;
         ctx.font = `30px 'Mystery Quest'`;
-        ctx.fillText(letter, currentX + offsetX, canvas.height / 2 + offsetY);
-        currentX += ctx.measureText(letter).width + 10;
+        ctx.fillText(letter, currentXFirst + offsetX, yOffsetFirstLine + offsetY);
+        currentXFirst += ctx.measureText(letter).width + 10;
+    });
+
+    // Shake and draw the second jumbled word
+    let currentXSecond = 0;
+    const secondWordWidth = secondWord.split("").reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (secondWord.length - 1) * 10;
+    const startXSecond = (canvas.width - secondWordWidth) / 2;
+    currentXSecond = startXSecond;
+
+    secondWord.split("").forEach((letter, index) => {
+        const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
+        const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
+        ctx.fillStyle = `rgb(${randomizedColors[(firstWord.length + index) % randomizedColors.length].join(',')})`; // Offset color index
+        ctx.font = `30px 'Mystery Quest'`;
+        ctx.fillText(letter, currentXSecond + offsetX, yOffsetSecondLine + offsetY);
+        currentXSecond += ctx.measureText(letter).width + 10;
     });
 }
 
@@ -342,7 +383,8 @@ drawText(currentName, letterColors);
 function updateCanvasDimensions() {
     const parent = canvas.parentNode;
     canvas.width = parent.offsetWidth;
-    canvas.height = 75;
+    // canvas.height = 75;
+    canvas.height = 300;
     drawText(currentName, letterColors);
 }
 
