@@ -48,9 +48,9 @@ body {
     src: url(/fonts/Kameron/Kameron-Medium.ttf); 
 }
 
-.hero {
+.intro {
     /* position: relative; /* For absolute positioning of canvas if needed */
-    /* width: 100%; Make hero width responsive */
+    /* width: 100%; Make intro width responsive */
     /* height: auto; Or a specific responsive height */
     text-align: center;
     display: flex;
@@ -60,14 +60,14 @@ body {
     /* padding: 1em; */
 }
 
-.hero h2 {
+.intro h2 {
     font-family: "Jomhuria", serif; 
     font-size: 3em;
     letter-spacing: 2px;
     margin: 0;
 }
 
-.hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
+.intro p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
     font-family: "Kameron", serif; 
     font-size: 1em;
     padding: 0 1em 0 1em;
@@ -330,7 +330,7 @@ iframe {
 
 /* Small tablets (portrait) */
 /* @media (min-width: 600px) {
-    .hero {
+    .intro {
         width: 100%;
         margin: 0 auto;
         flex-direction: row;
@@ -345,16 +345,16 @@ iframe {
         width: 10em;
     } 
 
-    .hero h2 {
+    .intro h2 {
         font-size: 4em;
     }
 
-    .hero p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
+    .intro p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
         font-size: 1.3em;
         padding-top: 3.5em;
     }
 
-    .hero .emoji {
+    .intro .emoji {
         padding-top: 3.5em;
     }
     

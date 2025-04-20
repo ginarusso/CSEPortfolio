@@ -182,7 +182,8 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-var myName = "Let's Create!"; // Your name or text to animate
+var correctPhrase = "Let's Create!";
+var words = correctPhrase.split(" ");
 var letterColors = [
     [0, 100, 63],     // red
     [40, 100, 60],    // orange
@@ -222,22 +223,30 @@ var letterColors = [
     [0, 0, 30]        // darkGray
 ];
 
-// Track the initial positions of the letters
-var initialPositions = [];
+function shuffleString(str) {
+    const a = str.split("");
+    const n = a.length;
+    for (let i = n - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a.join("");
+}
 
-// Get the audio element
-const hoverSound = document.getElementById("hoverSound");
+function shuffleArray(array) {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+}
 
-// Hover effect - make the text shake and play sound when hovering
-canvas.addEventListener('mouseenter', startHover);
-canvas.addEventListener('mouseleave', stopHover);
+// Initially jumble the words
+var jumbledWords = words.map(word => shuffleString(word));
+var currentName = jumbledWords.join(" ");
 
-// Variables to control the shaking effect
-let shakeInterval;
-let shaking = false;
-
-// Function to draw the name on canvas (now handles centering)
-function drawName(name, letterColors) {
+function drawText(text, colors) {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
     const fontSize = 20;
@@ -247,92 +256,98 @@ function drawName(name, letterColors) {
     ctx.shadowOffsetY = 2;
     ctx.shadowBlur = 3;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    const textWidth = name.split('').reduce((acc, letter) => acc + ctx.measureText(letter).width, 0);
-    const letterSpacing = 10;
-    const totalTextWidthWithSpacing = name.length > 0 ? textWidth + (name.length - 1) * letterSpacing : 0;
-    const startX = (canvasWidth - totalTextWidthWithSpacing) / 2;
-    const startY = canvasHeight / 2;
     ctx.textBaseline = 'middle';
-    let currentX = startX;
-    initialPositions.length = 0;
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    name.split('').forEach((letter, index) => {
-        ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
-        ctx.fillText(letter, currentX, startY);
-        initialPositions.push({ x: currentX, y: startY, offsetX: 0, offsetY: 0 });
-        currentX += ctx.measureText(letter).width + letterSpacing;
+
+    let currentX = 0;
+    const letters = text.split("");
+    const totalTextWidth = letters.reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (letters.length - 1) * 10;
+    const startX = (canvasWidth - totalTextWidth) / 2;
+    currentX = startX;
+
+    letters.forEach((letter, index) => {
+        // Pick a random color from the colors array for each letter
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        ctx.fillStyle = `rgb(${colors[randomIndex].join(',')})`;
+        ctx.fillText(letter, currentX, canvasHeight / 2);
+        currentX += ctx.measureText(letter).width + 10;
     });
 }
 
-// Function to start shaking
+let shakeInterval;
+let shaking = false;
+
 function startShaking() {
     if (!shaking) {
         shaking = true;
-        shuffleArray(letterColors);
         shakeInterval = setInterval(shakeText, 50);
     }
 }
 
-// Function to stop shaking
 function stopShaking() {
     if (shaking) {
         shaking = false;
         clearInterval(shakeInterval);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawName(myName, letterColors);
+        shuffleArray(letterColors); // Shuffle the colors *before* drawing the final text
+        drawText(correctPhrase, letterColors); // Draw the correctly spelled phrase with the shuffled colors
     }
 }
 
-// Function to start the hover effect (shake and play sound)
+// Get the audio element
+const hoverSound = document.getElementById("hoverSound");
+
 function startHover() {
-    startShaking(); // Start the shaking animation
-    hoverSound.play(); // Start playing the audio
+    console.log("Mouse entered canvas");
+    startShaking();
+    hoverSound.play();
 }
 
-// Function to stop the hover effect (stop shake and sound)
 function stopHover() {
-    stopShaking(); // Stop the shaking animation
-    hoverSound.pause(); // Pause the audio
-    hoverSound.currentTime = 0; // Reset audio to the beginning (optional)
+    console.log("Mouse left canvas");
+    stopShaking();
+    hoverSound.pause();
+    hoverSound.currentTime = 0;
 }
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// Function to shake text
 function shakeText() {
-    const bounceIntensity = 50;
+    const bounceIntensity = 30; // Increased bounce intensity
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.shadowOffsetX = 2;
     ctx.shadowOffsetY = 2;
     ctx.shadowBlur = 3;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-    initialPositions.forEach((pos, index) => {
+
+    const letters = currentName.split("");
+    const randomizedColors = shuffleArray([...letterColors]);
+
+    let currentX = 0;
+    const totalTextWidth = letters.reduce((sum, letter) => sum + ctx.measureText(letter).width, 0) + (letters.length - 1) * 10;
+    const startX = (canvas.width - totalTextWidth) / 2;
+    currentX = startX;
+
+    letters.forEach((letter, index) => {
         const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
         const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
-        ctx.fillStyle = `rgb(${letterColors[index % letterColors.length].join(',')})`;
-        ctx.font = `30px 'Mystery Quest'`; // Consistent font
-        ctx.fillText(myName[index], pos.x + offsetX, pos.y + offsetY);
+        ctx.fillStyle = `rgb(${randomizedColors[index % randomizedColors.length].join(',')})`;
+        ctx.font = `30px 'Mystery Quest'`;
+        ctx.fillText(letter, currentX + offsetX, canvas.height / 2 + offsetY);
+        currentX += ctx.measureText(letter).width + 10;
     });
 }
 
-// Call drawName initially to center the text
-drawName(myName, letterColors);
+// Initial drawing
+shuffleArray(letterColors);
+drawText(currentName, letterColors);
 
-// Make the canvas dimensions responsive
 function updateCanvasDimensions() {
-    const parent = canvas.parentNode; // Assuming canvas-container is the parent
+    const parent = canvas.parentNode;
     canvas.width = parent.offsetWidth;
-    canvas.height = 75; // Or your desired fixed height
-    drawName(myName, letterColors); // Redraw the text centered on resize
+    canvas.height = 75;
+    drawText(currentName, letterColors);
 }
 
 window.addEventListener('resize', updateCanvasDimensions);
-
-// Initial call to set up the canvas size and draw
 updateCanvasDimensions();
+
+canvas.addEventListener('mouseenter', startHover);
+canvas.addEventListener('mouseleave', stopHover);
