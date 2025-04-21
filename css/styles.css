@@ -125,7 +125,7 @@ body {
 .canvas-container .emoji-pointer {
   position: absolute;
   bottom: 0; /* Adjust as needed */
-  right: -20px; /* Adjust as needed */
+  right: -30px; /* Adjust as needed */
   z-index: 10; /* Ensure it's on top of the canvas */
   width: 200px; /* Adjust the size of the tap image */
   height: auto;
