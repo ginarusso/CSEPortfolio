@@ -115,9 +115,9 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding-bottom: 5em;
-  padding-right: 1em;
-  padding-left: 1em;
+  padding-bottom: 2em;
+  /* padding-right: 1em;
+  padding-left: 1em; */
   /* display: block; Prevents extra bottom spacing  */
   border: 4px dotted green;
 }
