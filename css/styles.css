@@ -98,7 +98,7 @@ body {
 .bio-section, .treasure-section, .python-section, .scratch-section {
   display: flex;
   flex-direction: row; /* Arrange image and text in a row */
-  align-items: flex-start; /* Align items to the top */
+  align-items: center; /* Align items to the top */
   width: 100%; /* Take full width to control child layout */
 }
 
