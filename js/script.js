@@ -399,7 +399,7 @@ function updateCanvasDimensions() {
     const parent = canvas.parentNode;
     canvas.width = parent.offsetWidth;
     // canvas.height = 75;
-    canvas.height = 300;
+    canvas.height = 200;
     drawText(currentName, letterColors);
 }
 
