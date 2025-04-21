@@ -253,7 +253,7 @@ body {
     justify-content: center;
     margin: .5em 0 0;
     padding: 0;
-    gap: 0.2em; /* Added the gap property */
+    gap: 0.1em; /* Added the gap property */
 }
 
 .social-list__item {
