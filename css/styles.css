@@ -99,13 +99,14 @@ body {
 .canvas-container {
   position: relative; /* Important for positioning the canvas within */
   width: 100%; /* Make the container take full width of its parent */
-  height: 350px; /* Adjust height as needed or based on content */
+  height: 300px; /* Adjust height as needed or based on content */
   /* margin: 0 auto; */
 }
 
 .canvas-container #myCanvas {
   position: absolute;
-  background-image: url(/images/laptop.png);
+  /* background-image: url(/images/laptop3.png); */
+  background-image: url(/images/monitor.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -114,10 +115,20 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding-bottom: 1em;
+  padding-bottom:4.5em;
   /* display: block; Prevents extra bottom spacing  */
-  border: 4px dotted green;
+  /* border: 4px dotted green; */
 }
+
+.canvas-container .emoji-pointer {
+  position: absolute;
+  bottom: 0; /* Adjust as needed */
+  right: 0; /* Adjust as needed */
+  z-index: 10; /* Ensure it's on top of the canvas */
+  width: 55%; /* Adjust the size of the tap image */
+  height: auto;
+}
+
 
 .placeholder {
     width: 50%;

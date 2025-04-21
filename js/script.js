@@ -257,7 +257,7 @@ setupJumbledPhrase();
 function drawText(text, colors) {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
-    const fontSize = 30;
+    const fontSize = 28;
     const font = `${fontSize}px Mystery Quest`;
     ctx.font = font;
     ctx.shadowOffsetX = 2;
@@ -399,7 +399,7 @@ function updateCanvasDimensions() {
     const parent = canvas.parentNode;
     canvas.width = parent.offsetWidth;
     // canvas.height = 75;
-    canvas.height = 350;
+    canvas.height = 300;
     drawText(currentName, letterColors);
 }
 
