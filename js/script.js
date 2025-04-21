@@ -182,7 +182,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-const messages = ["Let's Create!", "Happy Coding!", "micro:bit Madness!", "Explore Tech!", "Let's Innovate!", "Python Power!", "Let's Learn!", "Javascript Jam!", "Scratch Quest!", "Trinket Bytes!"];
+const messages = ["Let's Create!", "Happy Coding!", "micro:bit Madness!", "Explore Tech!", "Let's Innovate!", "Python Power!", "Let's Learn!", "Javascript Jam!", "Scratch Quest!", "Discover Trinket!", "Learn HTML!", "Styling CSS!"];
 var correctPhrase = messages[Math.floor(Math.random() * messages.length)];
 var words = correctPhrase.split(" ");
 var letterColors = [
