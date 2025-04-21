@@ -99,7 +99,7 @@ body {
 .canvas-container {
   position: relative; /* Important for positioning the canvas within */
   width: 100%; /* Make the container take full width of its parent */
-  height: 200px; /* Adjust height as needed or based on content */
+  height: 228px; /* Adjust height as needed or based on content */
   /* margin: 0 auto; */
 }
 
