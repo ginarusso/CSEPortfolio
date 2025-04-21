@@ -105,11 +105,11 @@ body {
 
 .canvas-container #myCanvas {
   position: absolute;
-  /* background-image: url(/images/laptop3.png); */
-  background-image: url(/images/monitor4.png);
+  background-image: url(/images/laptop3.png);
+  /* background-image: url(/images/monitor4.png); */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
   top: 0;
   left: 0;
   width: 100%;
