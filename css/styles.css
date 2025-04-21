@@ -127,6 +127,7 @@ body {
   height: 228px; /* Adjust height as needed or based on content */
   background-color: #E6F7F9;
   margin-top: .5em;
+  border-top: 2px solid #ccc; /* Add a subtle top border color */
   background-image: linear-gradient(rgba(0, 0, 0, 0.1) 10%, transparent 30%); /* Add a subtle top shadow */
   background-repeat: no-repeat;
 }
