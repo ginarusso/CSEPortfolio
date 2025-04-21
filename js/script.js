@@ -257,7 +257,7 @@ setupJumbledPhrase();
 function drawText(text, colors) {
     const canvasWidth = canvas.width;
     const canvasHeight = canvas.height;
-    const fontSize = 30;
+    const fontSize = 28;
     const font = `${fontSize}px Mystery Quest`;
     ctx.font = font;
     ctx.shadowOffsetX = 2;
@@ -381,7 +381,7 @@ function shakeText() {
         const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
         const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
         ctx.fillStyle = `rgb(${randomizedColors[index % randomizedColors.length].join(',')})`;
-        ctx.font = `30px 'Mystery Quest'`;
+        ctx.font = `28px 'Mystery Quest'`;
         ctx.fillText(letter, currentXFirst + offsetX, yOffsetFirstLine + offsetY);
         currentXFirst += ctx.measureText(letter).width + letterSpacing;
     });
@@ -395,7 +395,7 @@ function shakeText() {
         const offsetX = Math.random() * bounceIntensity - bounceIntensity / 2;
         const offsetY = Math.random() * bounceIntensity - bounceIntensity / 2;
         ctx.fillStyle = `rgb(${randomizedColors[(firstJumbledWord.length + index) % randomizedColors.length].join(',')})`;
-        ctx.font = `30px 'Mystery Quest'`;
+        ctx.font = `28px 'Mystery Quest'`;
         ctx.fillText(letter, currentXSecond + offsetX, yOffsetSecondLine + offsetY);
         currentXSecond += ctx.measureText(letter).width + letterSpacing;
     });
