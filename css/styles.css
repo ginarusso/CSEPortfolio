@@ -81,6 +81,7 @@ body {
   font-family: var(--ff-heading);
   font-size: var(--fs-h3);
   margin: 0;
+  text-align: center;
 }
 
 .bio-section p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
@@ -187,9 +188,9 @@ body {
   overflow: hidden;
 }
 
-.image {
+/* .image {
     margin-top: 1em;
-}
+} */
 
 .treasure, .python, .turtle, .alien, .scratch, .about-me, .footer {
     /* background-color: white; */
