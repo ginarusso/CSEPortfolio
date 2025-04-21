@@ -221,7 +221,7 @@ body {
 }
 
 .footer {
-    background: #111;
+ 
     color: var(--clr-accent);
     text-align: center;
     /* padding: 1em 0; */
@@ -256,7 +256,7 @@ body {
 }
 
 .social-list__item {
-    margin: 0 .5em;
+    margin: 0 .2em;
     transition: transform 200ms ease-in-out;
 }
 
