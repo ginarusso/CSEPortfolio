@@ -182,7 +182,8 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-var correctPhrase = "Let's Create!";
+const messages = ["Let's Create!", "Happy Coding!", "micro:bit Madness!", "Explore Tech!", "Let's Innovate!", "Python Power!", "Let's Learn!", "Javascript Jam!", "Scratch Quest!", "Trinket Bytes!"];
+var correctPhrase = messages[Math.floor(Math.random() * messages.length)];
 var words = correctPhrase.split(" ");
 var letterColors = [
     [0, 100, 63],     // red
@@ -242,9 +243,16 @@ function shuffleArray(array) {
     return newArray;
 }
 
-// Initially jumble the words
-var jumbledWords = words.map(word => shuffleString(word));
-var currentName = jumbledWords.join(" ");
+// Function to set up the jumbled words based on the current correctPhrase
+function setupJumbledPhrase() {
+    words = correctPhrase.split(" ");
+    jumbledWords = words.map(word => shuffleString(word));
+    currentName = jumbledWords.join(" ");
+    drawText(currentName, letterColors); // Redraw with the new jumbled phrase
+}
+
+// Initially set up the jumbled phrase
+setupJumbledPhrase();
 
 function drawText(text, colors) {
     const canvasWidth = canvas.width;
@@ -317,9 +325,15 @@ function stopShaking() {
 const hoverSound = document.getElementById("hoverSound");
 
 function startHover() {
-    console.log("Mouse entered canvas");
+    // console.log("Mouse entered canvas");
     startShaking();
     hoverSound.play();
+
+    if (canChangeMessage) {
+        correctPhrase = messages[Math.floor(Math.random() * messages.length)];
+        setupJumbledPhrase();
+        canChangeMessage = false; // Prevent rapid changes
+    }
 }
 
 function stopHover() {
@@ -327,6 +341,7 @@ function stopHover() {
     stopShaking();
     hoverSound.pause();
     hoverSound.currentTime = 0;
+    canChangeMessage = true; // Allow message change on the next hover
 }
 
 function shakeText() {
@@ -377,8 +392,8 @@ function shakeText() {
 }
 
 // Initial drawing
-shuffleArray(letterColors);
-drawText(currentName, letterColors);
+// shuffleArray(letterColors);
+// drawText(currentName, letterColors);
 
 function updateCanvasDimensions() {
     const parent = canvas.parentNode;
@@ -393,3 +408,5 @@ updateCanvasDimensions();
 
 canvas.addEventListener('mouseenter', startHover);
 canvas.addEventListener('mouseleave', stopHover);
+canvas.addEventListener('touchstart', startHover); // Add touch event listener
+canvas.addEventListener('touchend', stopHover);   // Add touch end listener
