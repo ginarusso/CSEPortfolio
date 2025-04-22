@@ -70,8 +70,6 @@ body {
   align-items: center;
   width: 100%;
   /* padding: 1em; */
-  max-width: 900px; /* For larger screens */
-  margin: 0 auto; /* Center on larger screens */
 }
 
 .intro h2 {
@@ -112,7 +110,12 @@ body {
   width: 100%; /* Take full width to control child layout */
 }
 
-.bio-section p, .treasure-section p, .python-section p, .scratch-section p {
+.alien-section {
+  flex-direction: column;
+  text-align: center;
+}
+
+.bio-section p, .treasure-section p, .alien-section p, .python-section p, .scratch-section p {
   text-align: center;
   margin-top: 0; /* Remove default top margin of paragraph */
 }
@@ -173,7 +176,7 @@ body {
 
 
 .placeholder {
-    width: 50%;
+    width: 300px;
 }
 
 .emoji-pointer {
@@ -198,16 +201,23 @@ body {
   overflow: hidden;
 }
 
-/* .image {
-    margin-top: 1em;
-} */
+.image {
+  margin-right: 2em;
+}
 
-.treasure, .python, .turtle, .alien, .scratch, .about-me, .footer {
+.led-divider {
+  max-width: 900px; /* For larger screens */
+  margin: 0 auto; /* Center on larger screens */
+}
+
+.intro, .treasure, .python, .turtle, .alien, .scratch, .about-me, .footer {
     /* background-color: white; */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: .5em;
+    max-width: 900px; /* For larger screens */
+    margin: 0 auto; /* Center on larger screens */
 }
 
 .intro, .alien, .scratch, .about-me {
@@ -483,7 +493,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto;
-    text-align: left;
     padding: 0 1em;
     align-items: start;
     grid-template-areas:
@@ -499,7 +508,6 @@ body {
   .intro h2 {
     grid-area: left;
     width: 100%;
-    text-align: center;
     color: #000000;
     background-color: #ffffff; 
     border-bottom: none;
@@ -509,13 +517,12 @@ body {
     grid-area: left;
     flex-direction: row;
     align-items: center;
-    text-align: left;
     margin-top: 3em;
   }
 
   .bio-section p {
     grid-area: left;
-    text-align: left;
+    text-align: center;
     padding-left: 0;
   }
 
@@ -525,21 +532,24 @@ body {
     margin-right: 0.5em;
   }
 
-  .intro > img:nth-of-type(1) { /* Circuits image */
+  .circuits {
     grid-area: left;
-    margin-top: 10em;
+    margin-top: 10.5em;
+    margin-left: 4em;
   }
 
   .robot-message {
     grid-area: left;
-    margin-left: 0;
-    margin-top: 15em;
-    /* margin-right: auto; */
+    margin-top: 15.5em;
   }
 
   .canvas-container {
     grid-area: right;
     margin-top: 4em;
+  }
+
+  .treasure {
+    flex-direction: row;
   }
 
 }
