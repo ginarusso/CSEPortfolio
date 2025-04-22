@@ -18,8 +18,10 @@
     --fw-reg: 300;
     --fw-bold: 900;
     
+    
     --clr-light: #fff;
     --clr-dark: #000;  */
+    --clr-divider: #0D454B;
     --clr-accent: #E6F7F9;
     
     /* --fs-h1: 3rem;
@@ -68,6 +70,8 @@ body {
   align-items: center;
   width: 100%;
   /* padding: 1em; */
+  max-width: 900px; /* For larger screens */
+  margin: 0 auto; /* Center on larger screens */
 }
 
 .intro h2 {
@@ -75,7 +79,7 @@ body {
   font-size: var(--fs-h2);
   letter-spacing: 2px;
   margin: 0;
-  background-color: #0D454B;
+  background-color: var(--clr-divider);
   width: 100%;
   padding-top: .1em;
   border-bottom: 2px solid #ccc; 
@@ -297,7 +301,7 @@ body {
   justify-content: center;
   gap: 15px;
   padding: 10px 0;
-  background: #0D454B;
+  background-color: var(--clr-divider);
 }
 
 .led {
@@ -451,6 +455,12 @@ body {
   
 /* Media query for desktop (screens 768px or larger) */
 @media (min-width: 768px) {
+  body {
+    background-image: url(/images/background-circuit-board.jpg);
+    background-size: contain;
+    background-attachment: fixed;
+  }
+
   .emoji-pointer::before {
     content: none; /* Remove the ::before content on desktop */
   }
@@ -459,6 +469,79 @@ body {
     overflow: visible;
     content: url(/images/hover.png); /* Try setting content directly on the image (might not work as expected) */
   }
+/* 
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto; 
+    text-align: left;
+    align-items: start;
+    background-color: blue;
+  } */
+
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto auto;
+    text-align: left;
+    padding: 0 1em;
+    align-items: start;
+    grid-template-areas:
+      "left right"
+      "left right"
+      "left right"
+      "left right"
+      "left right"
+      "left right";
+    background-color: #ffffff; /* Background for the grid */
+  }
+
+  .intro h2 {
+    grid-area: left;
+    width: 100%;
+    text-align: center;
+    color: #000000;
+    background-color: #ffffff; 
+    border-bottom: none;
+  }
+  
+  .bio-section {
+    grid-area: left;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    margin-top: 3em;
+  }
+
+  .bio-section p {
+    grid-area: left;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .bio-image {
+    grid-area: left;
+    margin-left: 0;
+    margin-right: 0.5em;
+  }
+
+  .intro > img:nth-of-type(1) { /* Circuits image */
+    grid-area: left;
+    margin-top: 10em;
+  }
+
+  .robot-message {
+    grid-area: left;
+    margin-left: 0;
+    margin-top: 15em;
+    /* margin-right: auto; */
+  }
+
+  .canvas-container {
+    grid-area: right;
+    margin-top: 4em;
+  }
+
 }
   
   /* Desktops */
