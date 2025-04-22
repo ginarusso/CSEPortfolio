@@ -75,9 +75,11 @@ body {
   font-size: var(--fs-h2);
   letter-spacing: 2px;
   margin: 0;
-  background-color: #E6F7F9;
+  background-color: #0D454B;
   width: 100%;
   padding-top: .1em;
+  border-bottom: 2px solid #ccc; 
+  color: #ffffff;
 }
 
 .intro h3, .treasure h3, .alien h3, .python h3, .scratch h3, .turtle h3, .about-me h3 {
@@ -278,7 +280,7 @@ body {
     float: right;
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
     background-color: black;
     z-index: 100;
     transition: transform 200ms ease-in-out;
