@@ -17,6 +17,22 @@
     <body>
         <a onclick="topFunction()" title="Go to top" style="display: none;"></a>
         <a id="home"></a>
+        <header>
+            <button class="nav-toggle" aria-label="toggle navigation" id="arrow">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list"> 
+                    <li class="nav__item"><a href="#index" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#physical" class="nav__link">Physical Computing</a></li>
+                    <li class="nav__item"><a href="#javascript" class="nav__link">Javascript</a></li>
+                    <li class="nav__item"><a href="#python" class="nav__link">Python</a></li>
+                    <li class="nav__item"><a href="#scratch" class="nav__link">Scratch</a></li>
+                    <li class="nav__item"><a href="#trinket" class="nav__link">Trinket</a></li>
+                    <li class="nav__item"><a href="#about-me" class="nav__link">About Me</a></li>
+                </ul>
+            </nav>
+        </header>
         <div class="intro">
             <h2>Gina Russo</h2>
             <div class="bio-section">
@@ -33,7 +49,7 @@
         </div>
         <div class="led-divider" data-led-shape="rectangle"></div>
         <a href="#home"><img class="arrows" id="arrow-up" src="images/green-up-arrow.gif"></a>
-        <div class="treasure">
+        <div class="treasure" id="physical">
             <img class="placeholder" src="images/placeholder.png" alt="image of placeholder" />
             <div class="treasure-section">
                 <p>I'll show you how to use Javascript and program a treasure chest that will open and close on command!</p>
@@ -41,7 +57,7 @@
             </div>
         </div>
         <div class="led-divider" data-led-shape="diamond"></div>
-        <div class="alien">
+        <div class="alien" id="javascript">
             <!--change this to app is interactive, where if a button is clicked the word is decrypted right on the page -->
             <!-- <iframe src="https://scrimba.com/s03tcje?pl=p67LBHv" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> -->
             <div class="alien-section">
@@ -52,27 +68,31 @@
             </div>
         </div>
         <div class="led-divider" data-led-shape="alien-head"></div>
-        <div class="python">
+        <div class="python" id="python">
             <h3>Or maybe...</h3>
                 <div class="python-section">
-                    <img class="emoji" src="/images/mole.png" alt="mole image" />
-                    <p>learn how to code a whack-a-mole game with Python!</p>
+                    <div class="mole-section">
+                        <img class="emoji" src="/images/mole.png" alt="mole image" />
+                        <p>learn how to code a whack-a-mole game with Python!</p>
+                    </div>
                 </div>
             <p>Click run: use your mouse or finger and start whacking!</p>
             <iframe src="https://trinket.io/embed/python/6fe0541377ce?outputOnly=true&runOption=run&start=result" allowtransparency="true" width="346" height="380" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
         <div class="led-divider" data-led-shape="rectangle"></div>
-        <div class="scratch">
+        <div class="scratch" id="scratch">
             <h3>Are you a visual learner?...</h3>
             <div class="scratch-section">
-                <p>Learn how to program using block-based coding with Scratch!</p>
-                <img class="image" src="/images/block-coding.png" alt="block coding image" />
+                <div class="block-section">
+                    <p>Learn how to program using block-based coding with Scratch!</p>
+                    <img class="image" src="/images/block-coding.png" alt="block coding image" />
+                </div>
             </div>
             <p>Click the green flag below to start the game. Turn up the volume!</p>
             <iframe src="https://scratch.mit.edu/projects/1128021665/embed" allowtransparency="true" width="350" height="325" frameborder="0" scrolling="no" allowfullscreen></iframe>
        </div>
        <div class="led-divider" data-led-shape="star"></div>
-       <div class="turtle">
+       <div class="turtle" id="trinket">
         <h3>Or...</h3>
             <p>code with Turtle graphics using Trinket!</p>
             <p>(Click the run button to restart the program)</p>
@@ -80,13 +100,13 @@
             <img class="image" src="/images/trinket-blocks.png" alt="block coding image" />
         </div>
         <div class="led-divider" data-led-shape="round"></div>
-        <div class="about-me">
+        <div class="about-me" id="about-me">
             <h3>My video resume...</h3>
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/RcwAyyiO258?si=m58gl7GFeRbQoAWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe class="iframe" width="100%" height="315" src="https://www.youtube.com/embed/RcwAyyiO258?si=m58gl7GFeRbQoAWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <img class="image" src="/images/standing-bitmoji.png" alt="standing bitmoji" /> 
             <!-- fix bitmoji size -->
             <h3>and my lesson sample for coding a compass</h3>
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS0faxnG8hoTyCJGk0ihXzTZ7sYyez60oYKSNjzLgsHzJlKEkEtx6VXZFroH8d_5VtmH5eMLlTfJuEy/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+            <iframe class="iframe" src="https://docs.google.com/presentation/d/e/2PACX-1vS0faxnG8hoTyCJGk0ihXzTZ7sYyez60oYKSNjzLgsHzJlKEkEtx6VXZFroH8d_5VtmH5eMLlTfJuEy/pubembed?start=true&loop=true&delayms=10000" frameborder="0" width="100%" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
         <footer class="footer">
             <ul class="social-list">
@@ -114,9 +134,10 @@
         </footer>
         <!-- <script type="text/javascript" src="js/bubbles.js"></script>
         <script type="text/javascript" src="js/main.js"></script> -->
-        <script src="index.js"></script> 
+        <script type="text/javascript" src="index.js"></script> 
         <!-- <script src="js/textAnimation.js"></script> -->
-        <script src="js/script.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="menu.js"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <!-- <script type="text/javascript" src="js/alphabet.js"></script> -->
 
