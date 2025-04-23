@@ -1,15 +1,15 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelectorAll('.nav__link')
 
-// navToggle.addEventListener('click', () => {
-//     document.body.classList.toggle('nav-open');
-// });
+navToggle.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+});
 
-// navLinks.forEach(link => {
-//     link.addEventListener('click', () => {
-//         document.body.classList.remove('nav-open');
-//     })
-// })
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+    })
+})
 
 // Get the button
 let arrowUp = document.getElementById('arrow-up');
@@ -26,12 +26,12 @@ function scrollFunction() {
     }
 }
 // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//     window.scrollTo({
-//       top: 0,
-//       behavior: 'smooth'
-//     });
-//   }
+function topFunction() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
   arrowUp.addEventListener('click', function (e) {
     e.preventDefault(); // stop default jump
