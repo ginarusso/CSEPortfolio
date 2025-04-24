@@ -76,7 +76,9 @@
                     </div>
                 </div>
             <p>Click run: use your mouse or finger and start whacking!</p>
-            <iframe src="https://trinket.io/embed/python/6fe0541377ce?outputOnly=true&runOption=run&start=result" allowtransparency="true" width="346" height="380" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <div id="trinket-wrapper" style="display: none;"></div>
+             <iframe src="https://trinket.io/embed/python/6fe0541377ce?outputOnly=true&runOption=run&start=result" allowtransparency="true" width="346" height="380" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            </div>
         </div>
         <div class="led-divider" data-led-shape="rectangle"></div>
         <div class="scratch" id="scratch">
@@ -131,12 +133,18 @@
                 </li>
             </ul>
         </footer>
+        <script>
+            window.addEventListener('load', function () {
+              document.getElementById('trinket-wrapper').style.display = 'block';
+            });
+          </script>
+          
         <!-- <script type="text/javascript" src="js/bubbles.js"></script>
         <script type="text/javascript" src="js/main.js"></script> -->
         <script type="text/javascript" src="index.js"></script> 
         <!-- <script src="js/textAnimation.js"></script> -->
         <script type="text/javascript" src="js/script.js"></script>
-        <script type="text/javascript" src="menu.js"></script>
+        <!-- <script type="text/javascript" src="menu.js"></script> -->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         <!-- <script type="text/javascript" src="js/alphabet.js"></script> -->
 
