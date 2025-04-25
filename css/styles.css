@@ -89,26 +89,30 @@ body {
   color: #ffffff;
 }
 
-.intro h3, .treasure h3, .alien h3, .python h3, .scratch h3, .turtle h3, .about-me h3 {
+.intro h3, .treasure h3, .python h3, .scratch h3, .turtle h3, .about-me h3 {
   font-family: var(--ff-heading);
   font-size: var(--fs-h3);
   margin: 0;
   text-align: center;
 }
 
+.alien h2 {
+  font-family: var(--ff-heading);
+  color: var(--clr-light);
+  font-size: var(--fs-h2);
+  margin: 0;
+  text-align: center;
+}
+
 .bio-section p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
     font-family: var(--ff-primary); 
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 0 1em 0 1em;
     text-align: center;
     margin: .5em 0;
 }
 
-.intro p {
-  font-size: 1.2em;
-}
-
-.bio-section, .treasure-section, .python-section, .scratch-section {
+.bio-section, .python-section, .scratch-section {
   display: flex;
   flex-direction: row; /* Arrange image and text in a row */
   align-items: center; /* Align items to the top */
@@ -116,9 +120,13 @@ body {
   justify-content: center;
 }
 
-.alien-section {
+.alien-section, .treasure-section {
   flex-direction: column;
   text-align: center;
+}
+
+.treasure-section {
+  background-color: white;
 }
 
 .python-section, .scratch-section {
@@ -225,16 +233,16 @@ body {
   overflow: hidden;
 }
 
-.image {
+/* .image {
   margin-right: 2em;
-}
+} */
 
 .led-divider {
-  max-width: 900px; /* For larger screens */
-  margin: 0 auto; /* Center on larger screens */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.led-divider, .alien-head {
+.led-divider.alien-divider {
   max-width: 100%;
 }
 
@@ -243,6 +251,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     /* padding: .5em; */
     padding: 0;
     max-width: 900px; /* For larger screens */
@@ -254,6 +263,13 @@ body {
   background-image: url(/images/stars.jpg);
   background-attachment: fixed;
 }
+
+/* .treasure {
+  max-width: 100%;
+  background-image: url(/images/gold-coins.jpg);
+  background-attachment: fixed;
+  background-size: contain;
+} */
 
 .iframe {
   max-width: 500px;
@@ -268,7 +284,7 @@ body {
     /* padding: .5em 0; */
 }
 
-.treasure, .python, .turtle {
+.python, .turtle {
     background-color: #E6F7F9;
     /* padding: 1.5em 0; */
 }
@@ -695,6 +711,13 @@ body {
     justify-content: center;
   }
 
+  .treasure-section {
+    flex-direction: row;
+    padding: 0 3.5em;
+    border-left: 4px solid var(--clr-divider);
+    border-right: 4px solid var(--clr-divider);
+  }
+
   .bio-image {
     grid-area: left;
     margin-left: 0;
@@ -719,8 +742,6 @@ body {
 
   .treasure {
     flex-direction: row;
-    border-left: 4px solid var(--clr-divider);
-    border-right: 4px solid var(--clr-divider);
   }
 
   nav { 
