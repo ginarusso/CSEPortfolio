@@ -780,6 +780,10 @@ body {
       color: lime;
   }
 
+  .footer {
+    max-width: 100%;
+  }
+
 }
   
   /* Desktops */
