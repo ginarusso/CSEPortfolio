@@ -96,7 +96,7 @@ body {
   text-align: center;
 }
 
-.alien h2, .python h2 {
+.alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
   font-family: var(--ff-heading);
   color: var(--clr-light);
   font-size: var(--fs-h2);
@@ -104,7 +104,7 @@ body {
   text-align: center;
 }
 
-.python h2 {
+.python h2, .scratch h2, .turtle h2, .about-me h2 {
   color: var(--clr-dark);
 }
 
