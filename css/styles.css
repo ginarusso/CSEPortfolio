@@ -21,7 +21,8 @@
     
     --clr-light: #fff;
     --clr-dark: #000;
-    --clr-divider: #0D454B;
+    /* --clr-divider: #0D454B; */
+    --clr-divider: #cd2355;
     /* --clr-accent: #E6F7F9; */
     --clr-accent: #E6F7F9;
     
@@ -84,16 +85,9 @@ body {
   margin: 0;
   background-color: var(--clr-divider);
   width: 100%;
-  padding-top: .1em;
+  padding-top: .3em;
   border-bottom: 2px solid #ccc; 
   color: #ffffff;
-}
-
-.intro h3, .treasure h3, .python h3, .scratch h3, .turtle h3, .about-me h3 {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-h3);
-  margin: 0;
-  text-align: center;
 }
 
 .alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
@@ -101,7 +95,12 @@ body {
   color: var(--clr-light);
   font-size: var(--fs-h2);
   margin: 0;
+  padding-top: .2em;
   text-align: center;
+}
+
+.about-me {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .python h2, .scratch h2, .turtle h2, .about-me h2 {
@@ -128,25 +127,25 @@ body {
   width: 100%;
 }
 
-.alien-section, .treasure-section, .trinket-mole, .python-section {
+.alien-section, .treasure-section, .trinket-mole, .python-section, .scratch-section, .turtle-section, .about-me-section {
   flex-direction: column;
   text-align: center;
 }
 
-.treasure-section, .python-section {
+.treasure-section, .python-section, .scratch-section, .turtle-section {
   background-color: white;
 }
 
-.scratch-section, .mole-section, .turtle {
+.sub-section {
   background-color: #E5E4E2;
 }
 
-.mole-section, .block-section {
+.sub-section {
   display: flex;
   align-items: center;
 }
 
-.mole-section p {
+.sub-section p {
   padding-top: 1em;
   width: 100%;
 }
@@ -198,8 +197,6 @@ body {
   height: 100%;
   margin: 0 auto;
   padding-bottom: 3em;
-  /* padding-right: 1em;
-  padding-left: 1em; */
   /* display: block; Prevents extra bottom spacing  */
   /* border: 4px dotted green; */
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -249,7 +246,7 @@ body {
 .led-divider {
   max-width: 900px;
   margin: 0 auto;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
 }
 
 .led-divider.wide {
@@ -287,10 +284,9 @@ body {
 } */
 
 .python {
-  /* background-image: url(/images/tech-background.png);
+  background-image: url(/images/mole-background.png);
   background-attachment: fixed;
-  background-size: contain; */
-  background-color: black;
+  background-size: contain;
   max-width: 100%;
 }
 
@@ -584,7 +580,8 @@ body {
 }
 
 .nav__link:hover {
-  color: lime;
+  /* color: lime; */
+  color: black;
 }
 
 .nav-toggle {
@@ -659,10 +656,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(/images/background-robot.png);
+    /* background-image: url(/images/background-robot.png); */
+    /* background-image: url(/images/computer-background-blue.png); */
+    background-image: url(/images/test3.png);
     background-size: contain;
     background-attachment: fixed;
-    opacity: 0.4;
+    opacity: 0.6;
     z-index: -1;
   }
 
@@ -688,7 +687,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto auto auto auto;
-    padding: 3em 1em 0 1em;
+    padding: 3em 1.3em 0 1em;
     align-items: start;
     grid-template-areas:
       "left right"
@@ -726,16 +725,28 @@ body {
 
   .python-section {
     /* max-width: 100%; */
+    background-image: url(/images/mole-background.png);
+    background-attachment: fixed;
+    background-size: contain;
     justify-content: center;
     max-width: 900px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
-  .treasure-section {
-    flex-direction: row;
-    padding: 0 3.5em;
+  .treasure-section, .turtle-section {
+    width: 900px;
+    /* padding: 0 3.5em; */
     /* border-left: 4px solid var(--clr-divider);
     border-right: 4px solid var(--clr-divider); */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .sub-section {
+    width: 100%;
+  }
+
+  .scratch {
+    padding: 0;
   }
 
   .scratch-section {
@@ -744,7 +755,7 @@ body {
 
   .bio-image {
     grid-area: left;
-    margin-left: 0;
+    margin-left: .1em;
     margin-right: 0.5em;
   }
 
@@ -765,7 +776,7 @@ body {
   }
 
   .treasure {
-    flex-direction: row;
+    /* flex-direction: row; */
   }
 
   nav { 
@@ -801,7 +812,8 @@ body {
   }
 
   .nav__link:hover {
-      color: lime;
+      /* color: lime; */
+      color: black;
   }
 
   .footer {
