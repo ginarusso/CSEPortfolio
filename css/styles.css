@@ -96,12 +96,16 @@ body {
   text-align: center;
 }
 
-.alien h2 {
+.alien h2, .python h2 {
   font-family: var(--ff-heading);
   color: var(--clr-light);
   font-size: var(--fs-h2);
   margin: 0;
   text-align: center;
+}
+
+.python h2 {
+  color: var(--clr-dark);
 }
 
 .bio-section p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
@@ -112,7 +116,7 @@ body {
     margin: .5em 0;
 }
 
-.bio-section, .python-section, .scratch-section {
+.bio-section, .scratch-section {
   display: flex;
   flex-direction: row; /* Arrange image and text in a row */
   align-items: center; /* Align items to the top */
@@ -120,17 +124,21 @@ body {
   justify-content: center;
 }
 
-.alien-section, .treasure-section {
+.python-section {
+  width: 100%;
+}
+
+.alien-section, .treasure-section, .trinket-mole, .python-section {
   flex-direction: column;
   text-align: center;
 }
 
-.treasure-section {
+.treasure-section, .python-section {
   background-color: white;
 }
 
-.python-section, .scratch-section {
-  background-color: #b5e8be;
+.scratch-section, .mole-section {
+  background-color: #E5E4E2;
 }
 
 .mole-section, .block-section {
@@ -170,7 +178,7 @@ body {
   position: relative; /* Important for positioning the canvas within */
   width: 100%; /* Make the container take full width of its parent */
   height: 228px; /* Adjust height as needed or based on content */
-  background-color: #E6F7F9;
+  background-color: #E5E4E2;
   margin-top: .5em;
   border-top: 2px solid #ccc; /* Add a subtle top border color */
   background-image: linear-gradient(rgba(0, 0, 0, 0.1) 10%, transparent 30%); /* Add a subtle top shadow */
@@ -242,7 +250,7 @@ body {
   margin: 0 auto;
 }
 
-.led-divider.alien-divider {
+.led-divider.wide {
   max-width: 100%;
 }
 
@@ -264,18 +272,30 @@ body {
   background-attachment: fixed;
 }
 
+/* .python {
+  background-color: white;
+} */
+
 /* .treasure {
   max-width: 100%;
   background-image: url(/images/gold-coins.jpg);
   background-attachment: fixed;
-  background-size: contain;
+  background-size: contain;a
 } */
+
+.python {
+  /* background-image: url(/images/tech-background.png);
+  background-attachment: fixed;
+  background-size: contain; */
+  background-color: black;
+  max-width: 100%;
+}
 
 .iframe {
   max-width: 500px;
 }
 
-.python, .scratch {
+.scratch {
   padding: .5em 0em;
 }
 
@@ -284,7 +304,7 @@ body {
     /* padding: .5em 0; */
 }
 
-.python, .turtle {
+.turtle {
     background-color: #E6F7F9;
     /* padding: 1.5em 0; */
 }
@@ -709,6 +729,7 @@ body {
   .python-section {
     /* max-width: 100%; */
     justify-content: center;
+    max-width: 900px;
   }
 
   .treasure-section {
