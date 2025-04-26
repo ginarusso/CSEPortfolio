@@ -202,6 +202,7 @@ body {
   padding-left: 1em; */
   /* display: block; Prevents extra bottom spacing  */
   /* border: 4px dotted green; */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .canvas-container .emoji-pointer {
@@ -248,6 +249,7 @@ body {
 .led-divider {
   max-width: 900px;
   margin: 0 auto;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .led-divider.wide {
@@ -696,9 +698,9 @@ body {
       "left right"
       "left right";
     background-color: #ffffff; /* Background for the grid */
-    border-left: 4px solid var(--clr-divider);
-    border-right: 4px solid var(--clr-divider);
-
+    /* border-left: 4px solid var(--clr-divider);
+    border-right: 4px solid var(--clr-divider); */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   .intro h2 {
@@ -731,8 +733,13 @@ body {
   .treasure-section {
     flex-direction: row;
     padding: 0 3.5em;
-    border-left: 4px solid var(--clr-divider);
-    border-right: 4px solid var(--clr-divider);
+    /* border-left: 4px solid var(--clr-divider);
+    border-right: 4px solid var(--clr-divider); */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .scratch-section {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
   .bio-image {
