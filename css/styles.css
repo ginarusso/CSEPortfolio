@@ -51,6 +51,11 @@ body {
   margin: 0 auto;
 }
 
+
+.image {
+  width: 200px;
+}
+
 /*********** font styles **************/
 @font-face {
     font-family: 'Jomhuria';
