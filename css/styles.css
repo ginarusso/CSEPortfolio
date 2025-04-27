@@ -12,6 +12,7 @@
 
     --fs-h2: 3rem;
     --fs-h3: 2rem;
+    --fs-nav: 1.2rem;
     /* --ff-secondary: 'Source Code Pro', monospace; */
     /* --ff-title: 'Sigmar', cursive; */
     
@@ -827,6 +828,7 @@ iframe {
       text-decoration: none;
       color: #fff;
       font-weight: var(--fw-bold);
+      font-size: var(--fs-nav);
   }
 
   .nav__link:hover {
