@@ -206,7 +206,7 @@ body {
   position: relative; /* Important for positioning the canvas within */
   width: 100%; /* Make the container take full width of its parent */
   height: 228px; /* Adjust height as needed or based on content */
-  background-color: #FFC0CB; 
+  background-color: #fde4f2; 
   margin-top: .5em;
   /* border-top: 2px solid #ccc; /* Add a subtle top border color */
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.1) 10%, transparent 30%); 
@@ -727,14 +727,14 @@ iframe {
   }
 
   .intro {
-    background-color: #FFC0CB;
+    background-color: #fde4f2;
   }
 
   .intro h2 {
     grid-area: left;
     width: 100%;
     color: #000000;
-    background-color: #FFC0CB; 
+    background-color: #fde4f2; 
     border-bottom: none;
     text-shadow: white 2px 1px;
   }
