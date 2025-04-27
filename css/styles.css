@@ -6,6 +6,17 @@
 
 /* Custom Properties */
 
+/*********** font styles **************/
+@font-face {
+  font-family: 'Jomhuria';
+  src: url(/fonts/Jomhuria/Jomhuria-Regular.ttf); 
+}
+
+@font-face {
+  font-family: 'Kameron';
+  src: url(/fonts/Kameron/Kameron-Medium.ttf); 
+}
+
 :root {
     --ff-heading: 'Jomhuria', serif; 
     --ff-primary: 'Kameron', sans-serif;
@@ -13,59 +24,26 @@
     --fs-h2: 3rem;
     --fs-h3: 2rem;
     --fs-nav: 1.2rem;
-    /* --ff-secondary: 'Source Code Pro', monospace; */
-    /* --ff-title: 'Sigmar', cursive; */
     
     --fw-reg: 300;
     --fw-bold: 900;
     
-    
     --clr-light: #fff;
     --clr-dark: #000;
-    /* --clr-divider: #0D454B; */
     --clr-divider: #cd2355;
-    /* --clr-accent: #E6F7F9; */
-    --clr-accent: #E6F7F9;
-    
-    /* --fs-h1: 3rem;
- 
-    --fs-body: 1rem;
-
-    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-          0.125em 0.125em 0.25em rgba(0,0,0,.15); */
 }
 
 body {
-    /* background-color: #ffffff; */
     margin: 0;
 }
-
-/* h3 {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-h3);
-  letter-spacing: 2px;
-  margin: 0;
-} */
 
 .parent {
   width: 80%;
   margin: 0 auto;
 }
 
-
 .image {
   width: 200px;
-}
-
-/*********** font styles **************/
-@font-face {
-    font-family: 'Jomhuria';
-    src: url(/fonts/Jomhuria/Jomhuria-Regular.ttf); 
-}
-
-@font-face {
-    font-family: 'Kameron';
-    src: url(/fonts/Kameron/Kameron-Medium.ttf); 
 }
 
 .emoji {
@@ -73,54 +51,88 @@ body {
 }
 
 .intro {
-  /* position: relative; /* For absolute positioning of canvas if needed */
-  /* width: 100%; Make intro width responsive */
-  /* height: auto; Or a specific responsive height */
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* padding: 1em; */
+  background-color: #fde4f2;
+}
+.bio-image {
+  width: 5rem;
+  border-radius: 1rem;
+  margin: .5em .3em .5em 1em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.robot-message {
+  margin: 0 auto 1em;
+}
+
+.canvas-container {
+position: relative;
+width: 100%; 
+height: 228px;
+background-color: #fde4f2; 
+margin-top: .5em;
+background-image: url(/images/canvas-background.png);
+}
+
+.canvas-container #myCanvas {
+position: absolute;
+background-image: url(/images/laptop3.png);
+/* background-image: url(/images/monitor4.png); */
+background-position: center;
+background-repeat: no-repeat;
+/* background-size: contain; */
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+margin: 0 auto;
+padding-bottom: 3em;
+/* display: block; Prevents extra bottom spacing  */
+/* border: 4px dotted green; */
+box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.canvas-container .emoji-pointer {
+position: absolute;
+bottom: 0; /* Adjust as needed */
+right: 10px; /* Adjust as needed change to - to move to right */
+z-index: 10; /* Ensure it's on top of the canvas */
+width: 180px; /* Adjust the size of the tap image */
+height: auto;
+pointer-events: none;
 }
 
 .intro h2 {
+  background-color: var(--clr-divider);
   font-family: var(--ff-heading);
   font-size: var(--fs-h2);
+  color: var(--clr-light);
   letter-spacing: 2px;
   margin: 0;
-  background-color: var(--clr-divider);
   width: 100%;
   padding-top: .3em;
-  border-bottom: 2px solid #ccc; 
-  color: #ffffff;
 }
 
 .alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
   font-family: var(--ff-heading);
-  color: var(--clr-light);
   font-size: var(--fs-h2);
+  color: var(--clr-light);
   margin: 0;
   padding-top: .2em;
   text-align: center;
-}
-
-.about-me {
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  background-image: url(/images/stripes.png);
-  background-attachment: fixed;
 }
 
 .python h2, .scratch h2, .turtle h2, .about-me h2 {
   color: var(--clr-dark);
 }
 
-.bio-section p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
-    font-family: var(--ff-primary); 
-    font-size: 1.2em;
-    padding: 0 1em 0 1em;
-    text-align: center;
-    margin: .5em 0;
+.about-me {
+  background-image: url(/images/stripes.png);
+  background-attachment: fixed;
 }
 
 .bio-section, .scratch-section {
@@ -174,6 +186,14 @@ body {
   margin-bottom: 1em;
 }
 
+.bio-section p, .treasure p, .alien p, .python p, .scratch p, .turtle p, .about-me p {
+  font-family: var(--ff-primary); 
+  font-size: 1.2em;
+  padding: 0 1em 0 1em;
+  text-align: center;
+  margin: .5em 0;
+}
+
 .sub-section p {
   padding-top: 1em;
   width: 100%;
@@ -187,60 +207,6 @@ body {
 .alien-section h3, .alien-section p {
   color: white;
 }
-
-.bio-image {
-    width: 5rem;
-    border-radius: 1rem;
-    margin-right: .3em; /* Add some space between the image and text */
-    margin-bottom: 0.5em; /* Add a little space below the image */
-    margin-left: 1em;
-    margin-top: .5em;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.robot-message {
-  margin: 0 auto 1em auto; /* Center the image and add bottom margin */
-}
-
-.canvas-container {
-  position: relative; /* Important for positioning the canvas within */
-  width: 100%; /* Make the container take full width of its parent */
-  height: 228px; /* Adjust height as needed or based on content */
-  background-color: #fde4f2; 
-  margin-top: .5em;
-  /* border-top: 2px solid #ccc; /* Add a subtle top border color */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.1) 10%, transparent 30%); 
-  background-repeat: no-repeat; */
-}
-
-.canvas-container #myCanvas {
-  position: absolute;
-  background-image: url(/images/laptop3.png);
-  /* background-image: url(/images/monitor4.png); */
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-size: contain; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  padding-bottom: 3em;
-  /* display: block; Prevents extra bottom spacing  */
-  /* border: 4px dotted green; */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.canvas-container .emoji-pointer {
-  position: absolute;
-  bottom: 0; /* Adjust as needed */
-  right: 10px; /* Adjust as needed change to - to move to right */
-  z-index: 10; /* Ensure it's on top of the canvas */
-  width: 180px; /* Adjust the size of the tap image */
-  height: auto;
-  pointer-events: none;
-}
-
 
 .placeholder {
     width: 300px;
@@ -275,7 +241,7 @@ body {
 .led-divider {
   max-width: 900px;
   margin: 0 auto;
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5), -2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .led-divider.wide {
@@ -341,9 +307,8 @@ iframe {
 }
 
 .footer {
-    color: var(--clr-accent);
+    color: var(--clr-light);
     text-align: center;
-    /* padding: 1em 0; */
     font-size: var(--fs-h3);
 }
 
@@ -720,15 +685,13 @@ iframe {
       "left right"
       "left right"
       "left right";
-    /* background-color: #ffffff; */
+    background-color: #fde4f2;
     /* border-left: 4px solid var(--clr-divider);
     border-right: 4px solid var(--clr-divider); */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   }
 
-  .intro {
-    background-color: #fde4f2;
-  }
+
 
   .intro h2 {
     grid-area: left;
@@ -768,11 +731,12 @@ iframe {
     /* max-width: 100%; */
     justify-content: center;
     max-width: 900px;
+    margin-bottom: 1em;
   }
 
   .treasure-section, .turtle-section {
     width: 900px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
   }
 
   .sub-section {
@@ -786,6 +750,11 @@ iframe {
   /* .scratch-section {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   } */
+
+  .about-me, .treasure-section, .turtle-section {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: .1em auto;
+  }
 
   .bio-image {
     grid-area: left;
