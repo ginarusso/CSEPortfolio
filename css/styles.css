@@ -505,7 +505,7 @@ iframe {
     cursor: pointer;
     position: absolute;
     right: 1em;
-    top: 1.5em;
+    top: .5em;
     z-index: 1000;
   }
 
