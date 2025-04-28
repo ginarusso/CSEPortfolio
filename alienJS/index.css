@@ -1,0 +1,70 @@
+/* body {
+    margin: 0 auto;
+    width: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url('images/space-deck-transparent.png') no-repeat center center, url('images/stars.gif') no-repeat center center;
+    background-size: cover, cover;
+    background-color: #000000;
+} */
+
+#title {
+    font-size: 1.875rem;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: yellow;
+    border: 4px dotted green;
+    color: red;
+}
+
+#request {
+    background-color: black;
+    padding: 5px;
+    color: #00ff00;
+}
+
+#btn {
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    margin: 100px auto;
+    background: #00ff00;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+p {
+    margin: 10px 0;
+    color: #00ff00;
+    font-size: 1.1rem;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 30px;
+    text-align: left;
+}
+
+li {
+    font-size: 1rem;
+    color: black;
+    padding-bottom: 5px;
+}
+
+button {
+    background-color: black;
+    color: #00ff00;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+}
+  
