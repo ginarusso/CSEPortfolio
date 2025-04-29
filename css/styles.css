@@ -49,6 +49,7 @@ body {
 .emoji {
   padding-left: 1em;
   padding-right: 1em;
+  width: 200px;
 }
 
 .bio-image {
@@ -129,7 +130,7 @@ background-image: url(/images/canvas-background.png);
   background-attachment: fixed;
 }
 
-.bio-section, .scratch-section {
+.bio-section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -140,6 +141,7 @@ background-image: url(/images/canvas-background.png);
 .alien-section, .treasure-section, .trinket-mole, .python-section, .scratch-section, .turtle-section, .about-me-section {
   flex-direction: column;
   text-align: center;
+  align-items: center;
   padding-bottom: 1em;
 }
 
@@ -505,7 +507,7 @@ iframe {
     cursor: pointer;
     position: absolute;
     right: 1em;
-    top: .5em;
+    top: .2em;
     z-index: 1000;
   }
 
