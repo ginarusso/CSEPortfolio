@@ -37,6 +37,11 @@ body {
     margin: 0;
 }
 
+.whack-a-mole {
+  width: 344px;
+  height:376px;
+}
+
 .parent {
   width: 80%;
   margin: 0 auto;
@@ -237,6 +242,11 @@ background-image: url(/images/canvas-background.png);
     padding: 0;
     max-width: 900px;
     margin: 0 auto; 
+}
+
+.python {
+  height: 640px; 
+  /* to help keep from jumping to this section before loading */
 }
 
 .alien {

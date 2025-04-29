@@ -99,7 +99,7 @@
                 </div>
                 <div>
                     <p>Click run: use your mouse or finger and start whacking!</p>
-                    <iframe src="https://trinket.io/embed/python/6fe0541377ce?outputOnly=true&runOption=run&start=result" allowtransparency="true" width="344" height="376" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <iframe class="whack-a-mole" tabindex="-1" src="https://trinket.io/embed/python/6fe0541377ce?outputOnly=true&runOption=run&start=result" loading="lazy" allowtransparency="true" width="344" height="376" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
             <!-- <div id="trinket-wrapper" style="display: none;"></div> -->
              
@@ -168,6 +168,17 @@
               document.getElementById('trinket-wrapper').style.display = 'block';
             });
           </script> -->
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const iframe = document.querySelector('.whack-a-mole');
+              if (iframe) {
+                iframe.addEventListener('load', function() {
+                  this.blur();
+                });
+              }
+            });
+          </script>
           
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> 
         <!-- <script type="text/javascript" src="js/bubbles.js"></script>
