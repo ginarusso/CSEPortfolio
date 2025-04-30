@@ -37,9 +37,14 @@ body {
     margin: 0;
 }
 
+.bold {
+  font-weight: var(--fw-bold);
+}
+
 .whack-a-mole {
   width: 344px;
-  height:376px;
+  height:385px;
+  overflow: hidden;
 }
 
 .parent {
@@ -122,7 +127,7 @@ background-image: url(/images/canvas-background.png);
   font-size: var(--fs-h2);
   color: var(--clr-light);
   margin: 0;
-  padding-top: .2em;
+  padding-top: .1em;
   text-align: center;
 }
 
