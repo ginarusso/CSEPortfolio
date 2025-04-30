@@ -41,12 +41,6 @@ body {
   font-weight: var(--fw-bold);
 }
 
-.whack-a-mole {
-  width: 344px;
-  height:385px;
-  overflow: hidden;
-}
-
 .parent {
   width: 80%;
   margin: 0 auto;
