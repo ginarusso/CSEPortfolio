@@ -246,8 +246,7 @@ background-image: url(/images/canvas-background.png);
 }
 
 .python {
-  height: 640px; 
-  /* to help keep from jumping to this section before loading */
+  height: 650px; 
 }
 
 .alien {
