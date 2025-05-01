@@ -232,7 +232,6 @@ background-image: url(/images/canvas-background.png);
 
 .led-divider.wide {
   max-width: 100%;
-  /* padding: 5px 0 20px 0; */
 }
 
 .intro, .treasure, .python, .turtle, .alien, .about-me, .footer {

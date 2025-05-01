@@ -14,6 +14,8 @@ const titleEl = document.getElementById("title");
 const requestEl = document.getElementById("request");
 const itemsEl = document.getElementById("items");
 const btnEl = document.getElementById("btn");
+const bleep = new Audio("sounds/bleep.mp3");
+const resetMessage = new Audio("sounds/reset.mp3");
 
 function reverseString(message){
     return message.split("").reverse().join("");
@@ -24,6 +26,7 @@ function reverseStringsInArray(messages) {
 }
 
 function decryptMessages() {
+    bleep.play();
     // Decrypt title
     titleEl.textContent = reverseString(title);
 
@@ -58,6 +61,7 @@ function decryptMessages() {
 
 function resetPage() {
     // Reset title
+    resetMessage.play();
     titleEl.textContent = title;
 
     // Reset request
