@@ -198,7 +198,7 @@ background-image: url(/images/canvas-background.png);
 
 .my-info p {
   text-align: left;
-  padding: 0 4em;
+  padding: 0 1em;
 }
 
 .sub-section p {
@@ -710,6 +710,10 @@ iframe {
   .about-me, .treasure-section, .turtle-section {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     margin: .1em auto;
+  }
+
+  .my-info  p {
+  padding: 0 4em;
   }
 
   .bio-image {
