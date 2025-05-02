@@ -192,6 +192,15 @@ background-image: url(/images/canvas-background.png);
   margin: .5em 0;
 }
 
+.my-info {
+  margin: 0 auto;
+}
+
+.my-info p {
+  text-align: left;
+  padding: 0 4em;
+}
+
 .sub-section p {
   padding-top: 1em;
   width: 100%;
@@ -272,6 +281,19 @@ background-image: url(/images/canvas-background.png);
 iframe {
   /* max-width: 500px; */
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.more-text {
+  display: none;
+}
+
+.read-more-btn {
+  color: #cd2355;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  margin: 0 70px 10px;
 }
 
 .footer {

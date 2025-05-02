@@ -100,3 +100,12 @@ function topFunction() {
     e.preventDefault(); // stop default jump
     document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
   });
+
+
+  function toggleReadMore(button) {
+    const moreText = button.previousElementSibling.querySelector('.more-text');
+    const isVisible = moreText.style.display === 'inline';
+
+    moreText.style.display = isVisible ? 'none' : 'inline';
+    button.textContent = isVisible ? 'Read More' : 'Read Less';
+  }
