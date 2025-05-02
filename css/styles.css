@@ -288,12 +288,20 @@ iframe {
 }
 
 .read-more-btn {
-  color: #cd2355;
+  background-color: #cd2355;
+  color: white;
   cursor: pointer;
   border: none;
-  background: none;
   font-weight: bold;
   margin: 0 70px 10px;
+  font-family: var(--ff-primary);
+  font-size: 1rem;
+  padding: 0 1em;
+}
+
+.read-more-btn:hover {
+  background-color: pink;
+  color: #cd2355;
 }
 
 .footer {
