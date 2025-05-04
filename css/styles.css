@@ -51,7 +51,7 @@ body {
   width: 250px;
 }
 
-.rocketship {
+.icon {
   width: 40px;
 }
 
@@ -97,10 +97,9 @@ background-image: url(/images/canvas-background.png);
   height: 100%;
   margin: 0 auto;
   padding-bottom: 3em;
-  border: 2px solid var(--clr-divider);
+  border: 4px solid var(--clr-divider);
   border-radius: 10px;
   box-shadow: 2px 2px 20px rgba(205, 35, 85, 0.5);
-
 }
 
 .canvas-container .emoji-pointer {
@@ -177,8 +176,12 @@ background-image: url(/images/canvas-background.png);
   height: 100%;
 }
 
-.scratch .sub-section {
+.scratch .sub-section, .turtle .sub-section {
   padding: 0 1em;
+}
+
+.treasure .sub-section p, .scratch .sub-section p, .turtle .sub-section p {
+  margin: 0 0 1em 0;
 }
 
 .sub-section {
@@ -218,7 +221,8 @@ background-image: url(/images/canvas-background.png);
 
 .my-info p {
   text-align: left;
-  padding: 0 1em;
+  padding: 0 .5em;
+  font-size: 1rem;
 }
 
 .sub-section p {
@@ -658,6 +662,12 @@ iframe {
     content: url(/images/hover.png); /* Try setting content directly on the image (might not work as expected) */
   }
 
+
+.search-emoji {
+  display: none;
+}
+
+
   /* .led-divider.wide {
     max-width: 100%;
   } */
@@ -728,6 +738,11 @@ iframe {
     padding: 1em;
   }
 
+  .turtle .sub-section {
+    padding: 0 3em;
+    width: 500px;
+  }
+
   .sub-section {
     width: 100%;
   }
@@ -741,8 +756,13 @@ iframe {
     margin: .1em auto;
   }
 
-  .my-info  .image {
+  .my-info .image {
     width: 30%;
+  }
+
+  .my-info p {
+    padding: 0;
+    font-size: 1.2rem;
   }
 
   .bio-image {
