@@ -216,7 +216,7 @@ background-image: url(/images/canvas-background.png);
 .my-info .image {
   float: left;
   /* padding-bottom: 1em; */
-  width: 50%;
+  width: 40%;
 }
 
 .my-info p {
