@@ -98,7 +98,7 @@ background-image: url(/images/canvas-background.png);
   margin: 0 auto;
   padding-bottom: 3em;
   border: 4px solid var(--clr-divider);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 2px 2px 20px rgba(205, 35, 85, 0.5);
 }
 
@@ -657,6 +657,7 @@ iframe {
     width: 100%;
     height: 100%;
     background-image: url(/images/background.png);
+    /* background-image: url(/images/background-pink.jpg); */
     /* background-image: url(/images/subtle-background.png); */
     /* background-color:#fff; */
     background-size: contain;
@@ -735,6 +736,10 @@ iframe {
     max-width: 100%;
     height: 650px; 
   }
+
+  /* .about-me {
+    max-width: 100%;
+  } */
 
   .python-section {
     justify-content: center;
