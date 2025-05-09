@@ -246,8 +246,8 @@ background-image: url(/images/canvas-background.png);
   color: var(--clr-light);
 }
 
-.placeholder {
-    width: 300px;
+.video {
+    width: 90%;
 }
 
 .emoji-pointer {
@@ -734,6 +734,11 @@ iframe {
   .canvas-container {
     background-color: white;
   }
+
+  .video {
+    width: 640px;
+    height: 360px;
+}
 
   .python {
     background-image: url(/images/grass.png);
