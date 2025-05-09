@@ -61,8 +61,6 @@ body {
   width: 200px;
 }
 
-
-
 .bio-image {
   width: 5rem;
   border-radius: 1rem;
@@ -247,7 +245,7 @@ background-image: url(/images/canvas-background.png);
 }
 
 .video {
-    width: 90%;
+    width: 80%;
 }
 
 .emoji-pointer {
