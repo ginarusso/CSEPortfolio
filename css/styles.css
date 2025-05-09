@@ -733,11 +733,6 @@ iframe {
     background-color: white;
   }
 
-  .video {
-    width: 640px;
-    height: 360px;
-}
-
   .python {
     background-image: url(/images/grass.png);
     background-attachment: fixed;
