@@ -126,7 +126,7 @@ background-image: url(/images/canvas-background.png);
   text-align: center;
 }
 
-.alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
+.treasure h2, .alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
   font-family: var(--ff-heading);
   font-size: var(--fs-h2);
   color: var(--clr-light);
@@ -135,8 +135,12 @@ background-image: url(/images/canvas-background.png);
   text-align: center;
 }
 
-.python h2, .scratch h2, .turtle h2, .about-me h2 {
+.treasure h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
   color: var(--clr-dark);
+}
+
+.turtle h2 {
+    padding-top: .2em;
 }
 
 .about-me {
@@ -167,6 +171,7 @@ background-image: url(/images/canvas-background.png);
 .treasure-section {
   background-image: url(/images/pink-stars.png);
   background-attachment: fixed;
+  padding-top: 1em;
 }
 
 .python-section {
