@@ -51,6 +51,10 @@ body {
   width: 250px;
 }
 
+.astronaut {
+  width: 150px;
+}
+
 .game-image {
   margin: .5em 0;
 }
@@ -126,6 +130,11 @@ background-image: url(/images/canvas-background.png);
   width: 100%;
   padding-top: .3em;
   text-align: center;
+}
+
+.astronaut {
+  width: 125px;
+  margin-bottom: 4em;
 }
 
 .treasure h2, .alien h2, .python h2, .scratch h2, .turtle h2, .about-me h2 {
@@ -735,6 +744,10 @@ iframe {
 
   .canvas-container {
     background-color: white;
+  }
+
+  .astronaut {
+    width: auto;
   }
 
   .python {
