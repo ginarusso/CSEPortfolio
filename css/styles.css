@@ -51,6 +51,10 @@ body {
   width: 250px;
 }
 
+.game-image {
+  margin: .5em 0;
+}
+
 .icon {
   width: 40px;
 }
@@ -290,7 +294,7 @@ background-image: url(/images/canvas-background.png);
 }
 
 .python {
-  height: 705px; 
+  height: auto; 
 }
 
 .alien {
@@ -739,7 +743,8 @@ iframe {
     background-size: cover;
     background-position: top;
     max-width: 100%;
-    /* height: 650px;  */
+    /* height: 890px;  */
+    height: auto;
   }
 
   /* .about-me {
