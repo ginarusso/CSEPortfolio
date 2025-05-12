@@ -109,3 +109,11 @@ function topFunction() {
     moreText.style.display = isVisible ? 'none' : 'inline';
     button.textContent = isVisible ? 'Read More' : 'Read Less';
   }
+
+  function togglePlayGame(button) {
+    const playGame = button.previousElementSibling.querySelector('.play-game');
+    const isVisible = playGame.style.display === 'inline';
+
+    playGame.style.display = isVisible ? 'none' : 'inline';
+    button.textContent = isVisible ? 'Play my whack-a-mole game' : 'Hide the game';
+  }
