@@ -57,6 +57,7 @@ body {
 
 .game-image {
   margin: .5em 0;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .icon {
@@ -608,7 +609,7 @@ iframe {
     cursor: pointer;
     position: absolute;
     right: 1em;
-    top: .8em;
+    top: 1.8em;
     z-index: 1000;
   }
 

@@ -88,7 +88,7 @@ function resetPage() {
     itemsEl.appendChild(ul);
 
      // Change button back to CLICK HERE and text to decrypt
-    btnEl.textContent = "CLICK HERE!";
+    btnEl.textContent = "CLICK HERE";
     resetText.textContent = "decrypt"
     btnEl.removeEventListener("click", resetPage);
     btnEl.addEventListener("click", decryptMessages);
