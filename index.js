@@ -113,7 +113,8 @@ function topFunction() {
 function togglePlayGame(button) {
   // Toggle visibility of .game-image elements
   const images = document.querySelectorAll('.game-image');
-  const currentlyVisible = images[0].style.display !== 'none';
+  const firstImageStyle = getComputedStyle(images[0]);
+  const currentlyVisible = firstImageStyle.display !== 'none';
 
   images.forEach(img => {
     img.style.display = currentlyVisible ? 'none' : 'inline'; // or 'block'
@@ -123,10 +124,11 @@ function togglePlayGame(button) {
   const playGame = document.querySelector('.play-game');
   if (!playGame) return;
 
-  const isGameVisible = playGame.style.display === 'block';
+  const isGameVisible = getComputedStyle(playGame).display !== 'none';
   playGame.style.display = isGameVisible ? 'none' : 'inline';
 
   // Update button text
-  button.textContent = isGameVisible ? 'Play my whack-a-mole game' : 'Hide the game';
+  button.textContent = isGameVisible ? 'Click here to play my whack-a-mole game' : 'Hide the game';
 }
+
 
