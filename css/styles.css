@@ -56,7 +56,7 @@ body {
 }
 
 .game-image {
-  margin: .5em 0;
+  margin: .5em;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
   width: 150px;
 }
