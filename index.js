@@ -110,10 +110,23 @@ function topFunction() {
     button.textContent = isVisible ? 'Read More' : 'Read Less';
   }
 
-  function togglePlayGame(button) {
-    const playGame = button.previousElementSibling.querySelector('.play-game');
-    const isVisible = playGame.style.display === 'inline';
+function togglePlayGame(button) {
+  // Toggle visibility of .game-image elements
+  const images = document.querySelectorAll('.game-image');
+  const currentlyVisible = images[0].style.display !== 'none';
 
-    playGame.style.display = isVisible ? 'none' : 'inline';
-    button.textContent = isVisible ? 'Play my whack-a-mole game' : 'Hide the game';
-  }
+  images.forEach(img => {
+    img.style.display = currentlyVisible ? 'none' : 'inline'; // or 'block'
+  });
+
+  // Toggle visibility of the .play-game element
+  const playGame = document.querySelector('.play-game');
+  if (!playGame) return;
+
+  const isGameVisible = playGame.style.display === 'inline';
+  playGame.style.display = isGameVisible ? 'none' : 'inline';
+
+  // Update button text
+  button.textContent = isGameVisible ? 'Play my whack-a-mole game' : 'Hide the game';
+}
+

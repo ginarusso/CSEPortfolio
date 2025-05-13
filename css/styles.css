@@ -58,6 +58,7 @@ body {
 .game-image {
   margin: .5em 0;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+  width: 150px;
 }
 
 .icon {
@@ -325,6 +326,11 @@ iframe {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
+.mole-iframe {
+  width: 410px;
+  height: 435px;
+}
+
 .more-text, .play-game {
   display: none;
 }
@@ -335,15 +341,17 @@ iframe {
   cursor: pointer;
   border: 4px solid pink;
   font-weight: bold;
-  margin: 0 70px 10px;
+  margin: 0 0 1em 0.3em; 
   font-family: var(--ff-primary);
   font-size: 1rem;
-  padding: 0 1em;
+  padding: .5em 1em;
+  border-radius: 10px;
   /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
 }
 
 .read-more-btn:hover, .play-game-btn:hover {
   background-color: pink;
+  border: 4px solid #cd2355;
   color: #cd2355;
 }
 
@@ -694,11 +702,9 @@ iframe {
     content: url(/images/hover.png); /* Try setting content directly on the image (might not work as expected) */
   }
 
-
-.search-emoji, hr {
-  display: none;
-}
-
+  .search-emoji, hr {
+    display: none;
+  }
 
   /* .led-divider.wide {
     max-width: 100%;
@@ -758,6 +764,12 @@ iframe {
     max-width: 100%;
     /* height: 890px;  */
     height: auto;
+  }
+
+  .game-image {
+    /* margin: .5em 0;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5); */
+    width: auto;
   }
 
   /* .about-me {
