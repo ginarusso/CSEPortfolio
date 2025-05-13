@@ -331,6 +331,7 @@ iframe {
   max-width: 410px;
   height: 435px;
   border: none;
+  margin: 0 auto;
   display: block;
 }
 
