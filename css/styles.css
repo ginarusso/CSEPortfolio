@@ -66,8 +66,7 @@ body {
 }
 
 .emoji {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0 .5em;
   width: 200px;
 }
 
@@ -224,6 +223,7 @@ background-image: url(/images/canvas-background.png);
   font-family: var(--ff-primary); 
   font-size: 1.2em;
   padding: 0 1em 0 1em;
+  /* padding: 0 .5em 0 .5em; */
   text-align: center;
   margin: .5em 0;
 }
@@ -333,6 +333,10 @@ iframe {
 
 .more-text, .play-game {
   display: none;
+}
+
+.play-game {
+  width: 100%;
 }
 
 .read-more-btn, .play-game-btn {
@@ -709,6 +713,10 @@ iframe {
   /* .led-divider.wide {
     max-width: 100%;
   } */
+
+  .emoji {
+    padding: 0 1em;
+  }
 
   .intro {
     display: grid;

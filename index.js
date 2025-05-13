@@ -123,7 +123,7 @@ function togglePlayGame(button) {
   const playGame = document.querySelector('.play-game');
   if (!playGame) return;
 
-  const isGameVisible = playGame.style.display === 'inline';
+  const isGameVisible = playGame.style.display === 'block';
   playGame.style.display = isGameVisible ? 'none' : 'inline';
 
   // Update button text
