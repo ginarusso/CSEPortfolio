@@ -327,16 +327,21 @@ iframe {
 }
 
 .mole-iframe {
-  width: 410px;
+  width: 100%;
+  max-width: 410px;
   height: 435px;
+  border: none;
+  display: block;
+}
+
+.play-game {
+  display: none;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .more-text, .play-game {
   display: none;
-}
-
-.play-game {
-  width: 100%;
 }
 
 .read-more-btn, .play-game-btn {
