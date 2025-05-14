@@ -618,6 +618,7 @@ iframe {
 
   .nav__link:hover {
     color: black;
+    text-shadow:white .5px .5px;
   }
 
   .nav-toggle {
@@ -746,7 +747,7 @@ iframe {
     color: #000000;
     background-color: #fff;
     border-bottom: none;
-    text-shadow: pink 2px 1px;
+    /* text-shadow: pink 2px 1px; */
   }
   
   .bio-section {
@@ -829,6 +830,10 @@ iframe {
     margin: .1em auto;
   }
 
+  .about-me h2 {
+    margin-top: .2em;
+  }
+
   .my-info .image {
     width: 30%;
   }
@@ -892,13 +897,13 @@ iframe {
   }
 
   .nav__link:hover {
-      color: black;
+    color: #ffd6e0;
   }
+
 
   .footer {
     max-width: 100%;
   }
-
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
