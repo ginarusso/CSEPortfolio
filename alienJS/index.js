@@ -14,7 +14,7 @@ const titleEl = document.getElementById("title");
 const requestEl = document.getElementById("request");
 const itemsEl = document.getElementById("items");
 const btnEl = document.getElementById("btn");
-const resetText = document.getElementById("reset-text");
+// const resetText = document.getElementById("reset-text");
 const bleep = new Audio("sounds/bleep.mp3");
 const resetMessage = new Audio("sounds/reset.mp3");
 
@@ -55,8 +55,8 @@ function decryptMessages() {
     itemsEl.appendChild(ul);
 
     // Change button to CLICK HERE and text to reset
-    btnEl.textContent = "CLICK HERE";
-    resetText.textContent = "encrypt"
+    btnEl.textContent = "Click here to ENCRYPT";
+    // resetText.textContent = "encrypt"
     btnEl.removeEventListener("click", decryptMessages);
     btnEl.addEventListener("click", resetPage);
 }
@@ -88,8 +88,8 @@ function resetPage() {
     itemsEl.appendChild(ul);
 
      // Change button back to CLICK HERE and text to decrypt
-    btnEl.textContent = "CLICK HERE";
-    resetText.textContent = "decrypt"
+    btnEl.textContent = "Click here to DECRYPT";
+    // resetText.textContent = "decrypt"
     btnEl.removeEventListener("click", resetPage);
     btnEl.addEventListener("click", decryptMessages);
 }
