@@ -95,6 +95,7 @@
 
 .btn:active {
       background-color: #00ff00; 
+      color: black;
     }
 
  @media (max-width: 768px) {
